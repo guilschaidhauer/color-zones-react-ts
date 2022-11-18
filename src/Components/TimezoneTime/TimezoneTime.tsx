@@ -35,7 +35,6 @@ class TimezoneTime extends React.Component<Props, State> {
     });
   }
 
-
 	render() {
 		return (
 			<div className="TimezoneTime">
