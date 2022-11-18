@@ -1,11 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import TimezonesHolder from './Components/TimezonesHolder/TimezonesHolder';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <TimezonesHolder />
       </header>
     </div>
   );

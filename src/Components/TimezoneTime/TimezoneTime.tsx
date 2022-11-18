@@ -1,13 +1,25 @@
 import React from 'react';
 
-class TimezoneTime extends React.Component {
+type Props = {
+    timezoneName: string;
+}
 
-  render() {
-    return (
-      <div className="TimezoneTime">
-      </div>
-    );
-  }
+class TimezoneTime extends React.Component<Props> {
+    
+    constructor(props: Props) {
+        super(props);
+        /*this.state = {
+            timeRemainingInSeconds: props.timezoneName
+        };*/
+    }
+
+    render() {
+        return (
+            <div className="TimezoneTime">
+                {this.props.timezoneName}
+            </div>
+        );
+    }
 }
 
 export default TimezoneTime;
