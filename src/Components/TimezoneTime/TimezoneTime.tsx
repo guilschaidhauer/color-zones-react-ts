@@ -8,43 +8,9 @@ type Props = {
 	timezoneName: string;
 }
 
-type State = {
-	dateString: string;
-}
-
-class TimezoneTime extends React.Component<Props, State> {
-	private timerID: any;
-
+class TimezoneTime extends React.Component<Props> {
 	constructor(props: Props) {
 		super(props);
-		this.state = {
-			dateString: new Date().toLocaleString("en-US", { timeZone: this.props.timezoneName })
-		};
-	}
-
-	componentDidMount() {
-		this.timerID = setInterval(
-			() => this.tick(),
-			1000
-		);
-	}
-
-	componentWillUnmount() {
-		clearInterval(this.timerID);
-	}
-
-	tick() {
-		this.setState({
-			dateString: new Date().toLocaleString("en-US", { timeZone: this.props.timezoneName })
-		});
-	}
-
-	getDateObject() {
-		const originalDateString = new Date().toLocaleString("en-US", { timeZone: this.props.timezoneName });
-		const parsedOriginalDate = Date.parse(originalDateString);
-		const originalDate = new Date(parsedOriginalDate);
-
-		return originalDate;
 	}
 
 	render() {
@@ -54,7 +20,6 @@ class TimezoneTime extends React.Component<Props, State> {
 				<Colon />
 				<Minute timezoneName={this.props.timezoneName}/>
 				<TimezoneDate />
-				{this.state.dateString}
 			</div>
 		);
 	}
