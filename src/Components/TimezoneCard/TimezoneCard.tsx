@@ -1,6 +1,6 @@
 import React from 'react';
 import TimezoneTime from '../TimezoneTime/TimezoneTime';
-import TimezoneDate from '../TimezoneName/TimezoneName';
+import TimezoneDate from '../TimezoneDate/TimezoneDate';
 import TimezoneName from '../TimezoneName/TimezoneName';
 
 
