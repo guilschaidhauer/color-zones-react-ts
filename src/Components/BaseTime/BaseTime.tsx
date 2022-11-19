@@ -2,20 +2,19 @@ import React from 'react';
 
 type Props = {
 	timezoneName: string;
-  getTimeString: (timezoneName: string) => string;
 }
 
 type State = {
 	baseString: string;
 }
 
-class BaseTime extends React.Component<Props, State> {
+abstract class BaseTime extends React.Component<Props, State> {
   private timerID: any;
   
   constructor(props: Props) {
 		super(props);
     this.state = {
-			baseString: this.getHourString()
+			baseString: this.getBaseString()
 		};
 	}
 
@@ -32,13 +31,11 @@ class BaseTime extends React.Component<Props, State> {
 
 	tick(): void {
 		this.setState({
-			baseString: this.getHourString()
+			baseString: this.getBaseString()
 		});
 	}
 
-  getHourString(): string {
-    return this.props.getTimeString(this.props.timezoneName);
-  }
+  abstract getBaseString(): string;
 
   render() {
     return (

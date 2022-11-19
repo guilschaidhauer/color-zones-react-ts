@@ -1,7 +1,8 @@
 import React from 'react';
-import BaseTime from '../BaseTime/BaseTime';
-import TimezoneName from '../TimezoneName/TimezoneName';
 import TimezoneTime from '../TimezoneTime/TimezoneTime';
+import TimezoneDate from '../TimezoneName/TimezoneName';
+import TimezoneName from '../TimezoneName/TimezoneName';
+
 
 interface Props {
   timezoneName: string;
@@ -12,15 +13,11 @@ class TimezoneCard extends React.Component<Props> {
     super(props);
   }
 
-  getDateString(timezoneName: string): string {
-    return new Date().toLocaleDateString("pt-BR", { timeZone: timezoneName });
-  }
-
   render() {
     return (
       <div className="TimezoneCard">
         <TimezoneTime timezoneName={this.props.timezoneName} />
-        <BaseTime timezoneName={this.props.timezoneName} getTimeString={this.getDateString} />
+        <TimezoneDate timezoneName={this.props.timezoneName} />
         <TimezoneName timezoneName={this.props.timezoneName} />
       </div>
     );
