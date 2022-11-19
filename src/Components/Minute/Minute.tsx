@@ -5,16 +5,16 @@ type Props = {
 }
 
 type State = {
-	minutesString: string;
+	minuteString: string;
 }
 
-class Minutes extends React.Component<Props, State> {
+class Minute extends React.Component<Props, State> {
   private timerID: any;
 
   constructor(props: Props) {
 		super(props);
     this.state = {
-			minutesString: this.getMinutesString()
+			minuteString: this.getMinuteString()
 		};
 	}
 
@@ -31,21 +31,21 @@ class Minutes extends React.Component<Props, State> {
 
 	tick(): void {
 		this.setState({
-			minutesString: this.getMinutesString()
+			minuteString: this.getMinuteString()
 		});
 	}
 
-  getMinutesString(): string {
+  getMinuteString(): string {
     return new Date().toLocaleString("pt-BR", { timeZone: this.props.timezoneName, minute: '2-digit' });
   }
 
   render() {
     return (
       <div className="Minutes">
-        {this.state.minutesString}
+        {this.state.minuteString}
       </div>
     );
   }
 }
 
-export default Minutes;
+export default Minute;

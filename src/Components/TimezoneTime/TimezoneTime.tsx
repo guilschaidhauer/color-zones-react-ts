@@ -1,7 +1,7 @@
 import React from 'react';
 import Hour from '../Hour/Hour';
 import Colon from '../Colon/Colon';
-import Minutes from '../Minutes/Minutes';
+import Minute from '../Minute/Minute';
 import TimezoneDate from '../TimezoneDate/TimezoneDate';
 
 type Props = {
@@ -52,7 +52,7 @@ class TimezoneTime extends React.Component<Props, State> {
 			<div className="TimezoneTime">
 				<Hour timezoneName={this.props.timezoneName} />
 				<Colon />
-				<Minutes timezoneName={this.props.timezoneName}/>
+				<Minute timezoneName={this.props.timezoneName}/>
 				<TimezoneDate />
 				{this.state.dateString}
 			</div>
