@@ -16,7 +16,7 @@ class TimezoneCard extends React.Component<Props> {
     return (
       <div className="TimezoneCard">
         <TimezoneTime timezoneName={this.props.timezoneName} />
-        <TimezoneDate />
+        <TimezoneDate timezoneName={this.props.timezoneName} />
         <TimezoneName timezoneName={this.props.timezoneName} />
       </div>
     );
