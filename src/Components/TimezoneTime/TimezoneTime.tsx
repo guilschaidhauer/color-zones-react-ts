@@ -1,4 +1,5 @@
 import React from 'react';
+import BaseTime from '../BaseTime/BaseTime';
 import Hour from '../Hour/Hour';
 import Colon from '../Colon/Colon';
 import Minute from '../Minute/Minute';
@@ -12,12 +13,20 @@ class TimezoneTime extends React.Component<Props> {
 		super(props);
 	}
 
+	getHourString(timezoneName: string): string {
+    return new Date().toLocaleString("pt-BR", { timeZone: timezoneName, hour: '2-digit' });
+  }
+
+	getMinuteString(timezoneName: string): string {
+    return new Date().toLocaleString("pt-BR", { timeZone: timezoneName, minute: '2-digit' });
+  }
+
 	render() {
 		return (
 			<div className="TimezoneTime">
-				<Hour timezoneName={this.props.timezoneName} />
+				<BaseTime timezoneName={this.props.timezoneName} getTimeString={this.getHourString}/>
 				<Colon />
-				<Minute timezoneName={this.props.timezoneName}/>
+				<BaseTime timezoneName={this.props.timezoneName} getTimeString={this.getMinuteString}/>
 			</div>
 		);
 	}
