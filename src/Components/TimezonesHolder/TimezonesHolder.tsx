@@ -1,5 +1,5 @@
 import React from 'react';
-import TimezoneTime from '../TimezoneTime/TimezoneTime';
+import TimezoneStrip from '../TimezoneStrip/TimezoneStrip';
 
 class TimezonesHolder extends React.Component {
 
@@ -8,8 +8,8 @@ class TimezonesHolder extends React.Component {
 
 		return (
 			<div className="TimezonesHolder">
-				<TimezoneTime timezoneName={timezoneNames[0]} />
-				<TimezoneTime timezoneName={timezoneNames[1]} />
+				<TimezoneStrip timezoneName={timezoneNames[0]} />
+				<TimezoneStrip timezoneName={timezoneNames[1]} />
 			</div>
 		);
 	}
