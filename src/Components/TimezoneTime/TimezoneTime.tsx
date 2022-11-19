@@ -26,6 +26,7 @@ class TimezoneTime extends React.Component<Props> {
 			<div className="TimezoneTime">
 				<Hour timezoneName={this.props.timezoneName} />
 				<Colon />
+				<Minute timezoneName={this.props.timezoneName} />
 			</div>
 		);
 	}
