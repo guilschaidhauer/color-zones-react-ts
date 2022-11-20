@@ -1,4 +1,4 @@
-type timezoneColor = {
+export type timezoneColor = {
   color: string;
   white: boolean;
 }

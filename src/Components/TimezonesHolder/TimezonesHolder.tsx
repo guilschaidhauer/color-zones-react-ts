@@ -10,7 +10,7 @@ class TimezonesHolder extends React.Component {
 		return (
 			<div className="TimezonesHolder">
 				{timezoneNames.map((timezoneName) =>
-					<TimezoneStrip timezoneName={timezoneName} width={100 / timezoneNames.length} />)
+					<TimezoneStrip key={timezoneName} timezoneName={timezoneName} width={100 / timezoneNames.length} />)
 				}
 			</div>
 		);
