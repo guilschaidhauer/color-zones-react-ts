@@ -13,6 +13,7 @@ type State = {
   color: timezoneColor;
 }
 
+//ToDo - Use a base updatable class based on the BaseTime class
 class TimezoneStrip extends React.Component<Props, State> {
   private timerID: any;
 
