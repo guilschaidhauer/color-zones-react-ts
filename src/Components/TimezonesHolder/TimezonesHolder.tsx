@@ -1,4 +1,5 @@
 import React from 'react';
+import './TimezonesHolder.css';
 import TimezoneStrip from '../TimezoneStrip/TimezoneStrip';
 
 class TimezonesHolder extends React.Component {
