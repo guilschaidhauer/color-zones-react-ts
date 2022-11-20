@@ -15,7 +15,7 @@ class TimezoneStrip extends React.Component<Props> {
   render() {
     return (
       <div className="TimezoneStrip" style={{ width: this.props.width + '%' }}>
-        <TimezoneCard timezoneName={this.props.timezoneName}/>
+        <TimezoneCard timezoneName={this.props.timezoneName} />
       </div>
     );
   }
