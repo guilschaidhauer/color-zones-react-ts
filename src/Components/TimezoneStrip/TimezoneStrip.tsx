@@ -1,6 +1,7 @@
 import React from 'react';
 import './TimezoneStrip.css';
 import TimezoneCard from '../TimezoneCard/TimezoneCard';
+import { TimezoneStripColors } from '../../Constants/TimezoneStripColors';
 
 interface Props {
   timezoneName: string;

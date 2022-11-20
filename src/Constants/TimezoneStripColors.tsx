@@ -3,7 +3,7 @@ type timezoneColor = {
   white: boolean;
 }
 
-export const timezoneStripColors: timezoneColor[] = [
+export const TimezoneStripColors: timezoneColor[] = [
   {
     color: '#120d29',
     white: true
