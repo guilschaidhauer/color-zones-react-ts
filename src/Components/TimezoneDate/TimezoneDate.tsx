@@ -1,8 +1,9 @@
 import BaseTime from '../BaseTime/BaseTime';
+import {getDate} from '../../Utils/DateUtils';
 
 class TimezoneDate extends BaseTime {
   getBaseString(): string {
-    return new Date().toLocaleDateString("pt-BR", { timeZone: this.props.timezoneName });
+    return getDate(this.props.timezoneName);
   }
 }
 
