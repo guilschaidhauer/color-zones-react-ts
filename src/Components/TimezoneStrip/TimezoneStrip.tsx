@@ -3,6 +3,7 @@ import './TimezoneStrip.css';
 import TimezoneCard from '../TimezoneCard/TimezoneCard';
 import { TimezoneStripColors } from '../../Constants/TimezoneStripColors';
 import { timezoneColor } from '../../Constants/TimezoneStripColors';
+import { getHour } from '../../Utils/DateUtils';
 
 type Props = {
   timezoneName: string;
@@ -42,7 +43,8 @@ class TimezoneStrip extends React.Component<Props, State> {
   }
 
   getTimezoneColor(): timezoneColor {
-    return TimezoneStripColors[10];
+    const colorIndex: number = +getHour(this.props.timezoneName);
+    return TimezoneStripColors[colorIndex];
   }
 
   render() {
