@@ -1,4 +1,5 @@
 import './App.css';
+import NewTimezoneButton from './Components/NewTimezoneButton/NewTimezoneButton';
 import TimezonesHolder from './Components/TimezonesHolder/TimezonesHolder';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <TimezonesHolder />
+        <NewTimezoneButton />
       </header>
     </div>
   );
