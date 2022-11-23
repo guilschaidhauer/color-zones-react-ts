@@ -4,7 +4,7 @@ import './NewTimezoneButton.css';
 class NewTimezoneButton extends React.Component {
   render() { 
     return (  
-      <button className="newTimezoneButton">+</button>
+      <button className="NewTimezoneButton">+</button>
     ); 
   }
 }
