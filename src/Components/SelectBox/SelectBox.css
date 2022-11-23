@@ -1,11 +1,12 @@
 .SelectBox {
-  display: flex;
   visibility: visible;
   position: absolute;
-  vertical-align: baseline;
-  background-color: azure;
-  width: 100%;
   top: 20px;
-  align-items: center;
-  justify-content: center;
+  right: 120px;
+  width: 35%;
+  height: 60px;
+  background-color: rgba(240, 255, 255, 0.6);
+  color: #393f3f;
+  border: none;
+  text-align: center;
 }

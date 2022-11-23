@@ -1,6 +1,5 @@
 .newTimezoneButton {
   visibility: visible;
-  opacity: 1;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -12,5 +11,4 @@
   border-radius:50px;
   text-align:center;
   font-size: 50px;
-  transition: visibility 0.5s, opacity 0.5s;
 }
