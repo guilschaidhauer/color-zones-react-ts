@@ -1,16 +1,13 @@
 import './App.css';
-import NewTimezoneButton from './Components/NewTimezoneButton/NewTimezoneButton';
 import TimezonesHolder from './Components/TimezonesHolder/TimezonesHolder';
-import SelectBox from './Components/SelectBox/SelectBox';
-
+import NewTimezoneForm from './Components/NewTimezoneForm/NewTimezoneForm';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <TimezonesHolder />
-        <NewTimezoneButton />
-        <SelectBox />
+        <NewTimezoneForm />
       </header>
     </div>
   );
