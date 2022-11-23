@@ -1,0 +1,11 @@
+.SelectBox {
+  display: flex;
+  visibility: visible;
+  position: absolute;
+  vertical-align: baseline;
+  background-color: azure;
+  width: 100%;
+  top: 20px;
+  align-items: center;
+  justify-content: center;
+}
