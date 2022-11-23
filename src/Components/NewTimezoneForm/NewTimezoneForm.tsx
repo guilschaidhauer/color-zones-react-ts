@@ -2,12 +2,33 @@ import React from 'react';
 import NewTimezoneButton from '../NewTimezoneButton/NewTimezoneButton';
 import SelectBox from '../SelectBox/SelectBox';
 
-class NewTimezoneForm extends React.Component {
+type Props = {
+}
+
+type State = {
+	showSelectBox: boolean;
+}
+
+class NewTimezoneForm extends React.Component<Props, State> {
+  constructor(props: Props) {
+		super(props);
+    this.state = {
+			showSelectBox: false
+		};
+	}
+
+  setSelectBoxVisible(active: boolean): void {
+    this.setState({
+			showSelectBox: active
+		});
+  }
+
+  // Pass callback to NewTimezoneButton that will set the showSelectBox to true
   render() {
     return (
       <div>
-        <NewTimezoneButton />
-        <SelectBox />
+        <NewTimezoneButton onClickCallback={this.setSelectBoxVisible.bind(this)}/>
+        { this.state.showSelectBox && (<SelectBox />) }
       </div>
     );
   }
