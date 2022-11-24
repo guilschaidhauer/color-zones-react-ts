@@ -13,11 +13,12 @@ class TimezonesHolder extends React.Component<Props> {
 
 	render() {
 		//const timezoneNames: string[] = ['Asia/Tokyo', 'Europe/Rome', 'America/Sao_Paulo'];
+		const timezoneNames = this.props.activeTimezoneNames;
 
 		return (
 			<div className="TimezonesHolder">
-				{this.props.activeTimezoneNames.map((timezoneName) =>
-					<TimezoneStrip key={timezoneName} timezoneName={timezoneName} width={100 / this.props.activeTimezoneNames.length} />)
+				{timezoneNames.map((timezoneName) =>
+					<TimezoneStrip key={timezoneName} timezoneName={timezoneName} width={100 / timezoneNames.length} />)
 				}
 			</div>
 		);

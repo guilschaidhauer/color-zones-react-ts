@@ -33,3 +33,16 @@ export const TimezoneList = new Map([
 
   ['America/Los_Angeles', 'Los Angeles']
 ]);
+
+export function getTimezoneByValue(searchValue: string): string {
+  let timezoneFullName: string = '';
+
+  // Is there a way to break out of this forEach? Maybe not use a forEach?
+  TimezoneList.forEach((value: string, key: string) => {
+    if (value === searchValue) {
+      timezoneFullName = key;
+    }
+  });
+
+  return timezoneFullName;
+}

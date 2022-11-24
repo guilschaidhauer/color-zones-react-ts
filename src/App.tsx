@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import TimezonesHolder from './Components/TimezonesHolder/TimezonesHolder';
 import NewTimezoneForm from './Components/NewTimezoneForm/NewTimezoneForm';
+import {getTimezoneByValue} from './Constants/TimezoneList';
 
 type Props = {
 }
@@ -19,8 +20,14 @@ class App extends React.Component<Props, State> {
   }
 
   addActiveTimezoneName(timezoneName: string): void {
-    this.state.activeTimezoneNames.push(timezoneName);
-    console.log(this.state.activeTimezoneNames);
+    const timezoneFullName: string = getTimezoneByValue(timezoneName);
+    
+    let newTimezoneList: string[] = this.state.activeTimezoneNames; 
+    newTimezoneList.push(timezoneFullName);
+
+    this.setState({
+      activeTimezoneNames: newTimezoneList
+    });    
   }
 
   render() {
