@@ -8,7 +8,15 @@ type Timezone = {
   value: string;
 }
 
-class CustomDatalistInput extends React.Component {
+type Props = {
+  onSelect: (timezoneName: string) => void;
+}
+
+class CustomDatalistInput extends React.Component<Props> {
+  constructor(props: Props) {
+		super(props);
+	}
+
   render() {
     let timezones: Timezone[] = [];
 
@@ -23,7 +31,7 @@ class CustomDatalistInput extends React.Component {
       <DatalistInput
         placeholder="Chocolate"
         label="Select ice cream flavor"
-        onSelect={(item) => console.log(item.value)}
+        onSelect={(item) => this.props.onSelect(item.value)}
         items={timezones}
       />
     );

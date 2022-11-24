@@ -3,6 +3,7 @@ import NewTimezoneButton from '../NewTimezoneButton/NewTimezoneButton';
 import SelectBox from '../SelectBox/SelectBox';
 
 type Props = {
+  onClickAddCallback: (timezoneName: string) => void;
 }
 
 type State = {
@@ -36,7 +37,7 @@ class NewTimezoneForm extends React.Component<Props, State> {
         <NewTimezoneButton onClickCallback={this.setSelectBoxVisible.bind(this)} />
         {this.state.showSelectBox &&
           (<SelectBox
-            onClickAddCallback={this.setSelectBoxVisibleToFalse.bind(this)}
+            onClickAddCallback={this.props.onClickAddCallback}
             onClickCancelCallback={this.setSelectBoxVisibleToFalse.bind(this)} />)
         }
       </div>

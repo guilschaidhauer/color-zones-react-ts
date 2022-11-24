@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   label: string;
-  onClickCallback: () => void;
+  onClickCallback: any;
 }
 
 class CustomButton extends React.Component<Props> {

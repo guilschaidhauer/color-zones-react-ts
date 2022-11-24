@@ -18,12 +18,17 @@ class App extends React.Component<Props, State> {
     };
   }
 
+  addActiveTimezoneName(timezoneName: string): void {
+    this.state.activeTimezoneNames.push(timezoneName);
+    console.log(this.state.activeTimezoneNames);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <TimezonesHolder activeTimezoneNames={this.state.activeTimezoneNames}/>
-          <NewTimezoneForm />
+          <NewTimezoneForm onClickAddCallback={this.addActiveTimezoneName.bind(this)}/>
         </header>
       </div>
     );
