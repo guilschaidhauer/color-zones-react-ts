@@ -1,5 +1,5 @@
 
-export const timezoneList = new Map([
+export const TimezoneList = new Map([
   ['Australia/Melbourne', 'Melbourne'],
   ['Australia/Sydney', 'Sydney'],
 
