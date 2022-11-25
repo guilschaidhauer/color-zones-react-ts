@@ -30,7 +30,6 @@ class NewTimezoneForm extends React.Component<Props, State> {
     });
   }
 
-  // Pass callback to NewTimezoneButton that will set the showSelectBox to true
   render() {
     return (
       <div>
@@ -38,7 +37,8 @@ class NewTimezoneForm extends React.Component<Props, State> {
         {this.state.showSelectBox &&
           (<SelectBox
             onClickAddCallback={this.props.onClickAddCallback}
-            onClickCancelCallback={this.setSelectBoxVisibleToFalse.bind(this)} />)
+            onClickCancelCallback={this.setSelectBoxVisibleToFalse.bind(this)}
+            setSelectBoxVisibleToFalseCallback={this.setSelectBoxVisibleToFalse.bind(this)} />)
         }
       </div>
     );

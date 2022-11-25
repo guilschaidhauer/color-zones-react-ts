@@ -6,6 +6,7 @@ import './SelectBox.css';
 type Props = {
   onClickAddCallback: (timezoneName: string) => void;
   onClickCancelCallback: () => void;
+  setSelectBoxVisibleToFalseCallback: () => void;
 }
 
 type State = {
@@ -22,6 +23,7 @@ class SelectBox extends React.Component<Props, State> {
 
   onClickAdd() {
     this.props.onClickAddCallback(this.state.selectedValue);
+    this.props.setSelectBoxVisibleToFalseCallback();
   }
 
   onSelect(timezoneName: string): void {

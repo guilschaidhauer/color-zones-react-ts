@@ -12,7 +12,6 @@ class TimezonesHolder extends React.Component<Props> {
   }
 
 	render() {
-		//const timezoneNames: string[] = ['Asia/Tokyo', 'Europe/Rome', 'America/Sao_Paulo'];
 		const timezoneNames = this.props.activeTimezoneNames;
 
 		return (
