@@ -1,8 +1,9 @@
 import React from 'react';
-import BaseTime from '../BaseTime/BaseTime';
 import Hour from '../Hour/Hour';
 import Colon from '../Colon/Colon';
 import Minute from '../Minute/Minute';
+import './TimezoneTime.css'
+
 
 type Props = {
 	timezoneName: string;
