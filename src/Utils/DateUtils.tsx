@@ -1,7 +1,27 @@
 import { TimezoneList } from '../Constants/TimezoneList';
 
-export function getHour(timezoneName: string): string {
-  return new Date().toLocaleString("pt-BR", { timeZone: timezoneName, hour: '2-digit' });
+function getDateObject(timezoneName: string, isLiveTime: boolean, timeOffsetInSeconds: number) {
+  // Create original date "Date" object
+  const originalDateString = new Date().toLocaleString("en-US", { timeZone: timezoneName });
+  const parsedOriginalDate = Date.parse(originalDateString);
+  const originalDate = new Date(parsedOriginalDate);
+
+  if (isLiveTime) {
+    return originalDate;
+  }
+
+  // Add offset to time
+  const originalDateInMs = originalDate.getTime();
+  const dateWithOffsetInMs = originalDateInMs + (timeOffsetInSeconds * 1000);
+  const dateWithOffset = new Date(dateWithOffsetInMs);
+
+  return dateWithOffset;
+}
+
+
+export function getHour(timezoneName: string, isLiveTime: boolean, timeOffsetInSeconds: number): string {
+  let date = getDateObject(timezoneName, isLiveTime, timeOffsetInSeconds);
+  return date.toLocaleString("pt-BR", { hour: '2-digit' });
 }
 
 export function getMinute(timezoneName: string): string {

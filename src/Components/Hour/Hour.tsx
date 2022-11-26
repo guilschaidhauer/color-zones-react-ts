@@ -4,7 +4,7 @@ import './Hour.css'
 
 class Hour extends BaseTime {
   getBaseString(): string {
-    return getHour(this.props.timezoneName);
+    return getHour(this.props.timezoneName, this.props.isLiveTime, this.props.timeOffsetInSeconds);
   }
 }
 

@@ -45,7 +45,7 @@ class TimezoneStrip extends React.Component<Props, State> {
   }
 
   getTimezoneColor(): timezoneColor {
-    const colorIndex: number = +getHour(this.props.timezoneName);
+    const colorIndex: number = +getHour(this.props.timezoneName, this.props.isLiveTime, this.props.timeOffsetInSeconds);
     return TimezoneStripColors[colorIndex];
   }
 
