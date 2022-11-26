@@ -4,7 +4,7 @@ import './TimezoneDate.css';
 
 class TimezoneDate extends BaseTime {
   getBaseString(): string {
-    return getDate(this.props.timezoneName);
+    return getDate(this.props.timezoneName, this.props.isLiveTime, this.props.timeOffsetInSeconds);
   }
 }
 
