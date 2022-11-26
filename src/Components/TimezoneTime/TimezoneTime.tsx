@@ -13,14 +13,6 @@ class TimezoneTime extends React.Component<Props> {
 		super(props);
 	}
 
-	getHourString(timezoneName: string): string {
-    return new Date().toLocaleString("pt-BR", { timeZone: timezoneName, hour: '2-digit' });
-  }
-
-	getMinuteString(timezoneName: string): string {
-    return new Date().toLocaleString("pt-BR", { timeZone: timezoneName, minute: '2-digit' });
-  }
-
 	render() {
 		return (
 			<div className="TimezoneTime">
