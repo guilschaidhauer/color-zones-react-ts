@@ -1,0 +1,9 @@
+.TimezoneCard {
+  display: flex;
+  color: azure;
+  font-family: Verdana, Geneva, sans-serif;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}

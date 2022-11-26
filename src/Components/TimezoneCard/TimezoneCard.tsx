@@ -3,6 +3,7 @@ import TimezoneTime from '../TimezoneTime/TimezoneTime';
 import TimezoneDate from '../TimezoneDate/TimezoneDate';
 import TimezoneName from '../TimezoneName/TimezoneName';
 import RemoveTimezoneButton from '../RemoveTimezoneButton/RemoveTimezoneButton';
+import './TimezoneCard.css'
 
 interface Props {
   timezoneName: string;
