@@ -1,4 +1,5 @@
 import React from 'react';
+import './TimezoneName.css'
 
 interface Props {
   timezoneName: string;
