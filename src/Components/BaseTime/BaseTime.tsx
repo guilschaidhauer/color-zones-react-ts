@@ -3,6 +3,8 @@ import React from 'react';
 type Props = {
 	timezoneName: string;
 	customClassName: string;
+	isLiveTime: boolean;
+  timeOffsetInSeconds: number;
 }
 
 type State = {

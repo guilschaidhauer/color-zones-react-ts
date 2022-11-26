@@ -30,7 +30,9 @@ class TimezonesHolder extends React.Component<Props, State> {
 					<TimezoneStrip
 						key={timezoneName}
 						timezoneName={timezoneName} width={100 / timezoneNames.length}
-						handleDeleteTimezone={this.props.handleDeleteTimezone} />)
+						handleDeleteTimezone={this.props.handleDeleteTimezone}
+						isLiveTime={this.state.isLiveTime}
+						timeOffsetInSeconds={this.state.timeOffsetInSeconds} />)
 				}
 			</div>
 		);

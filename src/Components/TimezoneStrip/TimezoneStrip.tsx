@@ -9,13 +9,14 @@ type Props = {
   timezoneName: string;
   width: number;
   handleDeleteTimezone: (timezoneName: string) => void;
+  isLiveTime: boolean;
+  timeOffsetInSeconds: number;
 }
 
 type State = {
   color: timezoneColor;
 }
 
-//ToDo - Use a base updatable class based on the BaseTime class
 class TimezoneStrip extends React.Component<Props, State> {
   private timerID: any;
 
@@ -56,7 +57,11 @@ class TimezoneStrip extends React.Component<Props, State> {
           background: this.state.color.color,
           color: ((this.state.color.white) ? 'azure' : '#393f3f')
         }}>
-        <TimezoneCard timezoneName={this.props.timezoneName} handleDeleteTimezone={this.props.handleDeleteTimezone}/>
+        <TimezoneCard
+          timezoneName={this.props.timezoneName}
+          handleDeleteTimezone={this.props.handleDeleteTimezone}
+          isLiveTime={this.props.isLiveTime}
+          timeOffsetInSeconds={this.props.timeOffsetInSeconds} />
       </div>
     );
   }
