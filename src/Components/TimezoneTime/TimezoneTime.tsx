@@ -17,9 +17,9 @@ class TimezoneTime extends React.Component<Props> {
 	render() {
 		return (
 			<div className="TimezoneTime">
-				<Hour timezoneName={this.props.timezoneName} />
+				<Hour timezoneName={this.props.timezoneName} customClassName='Hour' />
 				<Colon />
-				<Minute timezoneName={this.props.timezoneName} />
+				<Minute timezoneName={this.props.timezoneName} customClassName='Minute'/>
 			</div>
 		);
 	}

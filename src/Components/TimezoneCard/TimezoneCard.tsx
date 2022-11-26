@@ -19,7 +19,7 @@ class TimezoneCard extends React.Component<Props> {
     return (
       <div className="TimezoneCard">
         <TimezoneTime timezoneName={this.props.timezoneName} />
-        <TimezoneDate timezoneName={this.props.timezoneName} />
+        <TimezoneDate timezoneName={this.props.timezoneName} customClassName='TimezoneDate'/>
         <TimezoneName timezoneName={this.props.timezoneName} />
         <RemoveTimezoneButton timezoneName={this.props.timezoneName} onClickCallback={this.props.handleDeleteTimezone}/>
       </div>

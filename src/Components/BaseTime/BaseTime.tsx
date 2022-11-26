@@ -2,6 +2,7 @@ import React from 'react';
 
 type Props = {
 	timezoneName: string;
+	customClassName: string;
 }
 
 type State = {
@@ -39,7 +40,7 @@ abstract class BaseTime extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="BaseTime">
+      <div className={this.props.customClassName}>
         {this.state.baseString}
       </div>
     );
