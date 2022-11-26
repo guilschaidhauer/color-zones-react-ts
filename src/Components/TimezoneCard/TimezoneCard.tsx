@@ -2,8 +2,7 @@ import React from 'react';
 import TimezoneTime from '../TimezoneTime/TimezoneTime';
 import TimezoneDate from '../TimezoneDate/TimezoneDate';
 import TimezoneName from '../TimezoneName/TimezoneName';
-import CustomButton from '../CustomButton/CustomButton';
-import {removeTimezoneFromSavedTimezones} from '../../Utils/SettingsUtils';
+import RemoveTimezoneButton from '../RemoveTimezoneButton/RemoveTimezoneButton';
 
 interface Props {
   timezoneName: string;
@@ -21,7 +20,7 @@ class TimezoneCard extends React.Component<Props> {
         <TimezoneTime timezoneName={this.props.timezoneName} />
         <TimezoneDate timezoneName={this.props.timezoneName} />
         <TimezoneName timezoneName={this.props.timezoneName} />
-        <CustomButton label='X' onClickCallback={this.props.handleDeleteTimezone(this.props.timezoneName)}/>
+        <RemoveTimezoneButton timezoneName={this.props.timezoneName} onClickCallback={this.props.handleDeleteTimezone}/>
       </div>
     );
   }
