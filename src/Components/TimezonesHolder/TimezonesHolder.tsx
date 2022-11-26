@@ -7,10 +7,19 @@ type Props = {
 	handleDeleteTimezone: (timezoneName: string) => void;
 }
 
-class TimezonesHolder extends React.Component<Props> {
+type State = {
+	isLiveTime: boolean;
+	timeOffsetInSeconds: number;
+}
+
+class TimezonesHolder extends React.Component<Props, State> {
 	constructor(props: Props) {
-    super(props);
-  }
+		super(props);
+		this.state = {
+			isLiveTime: true,
+			timeOffsetInSeconds: 0
+		};
+	}
 
 	render() {
 		const timezoneNames = this.props.activeTimezoneNames;
@@ -18,7 +27,10 @@ class TimezonesHolder extends React.Component<Props> {
 		return (
 			<div className="TimezonesHolder">
 				{timezoneNames.map((timezoneName) =>
-					<TimezoneStrip key={timezoneName} timezoneName={timezoneName} width={100 / timezoneNames.length} handleDeleteTimezone={this.props.handleDeleteTimezone} />)
+					<TimezoneStrip
+						key={timezoneName}
+						timezoneName={timezoneName} width={100 / timezoneNames.length}
+						handleDeleteTimezone={this.props.handleDeleteTimezone} />)
 				}
 			</div>
 		);
