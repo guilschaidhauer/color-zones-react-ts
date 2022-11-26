@@ -1,4 +1,5 @@
 import React from 'react';
+import './RemoveTimezoneButton.css'
 
 type Props = {
   timezoneName: string;
