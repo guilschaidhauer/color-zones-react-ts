@@ -1,4 +1,5 @@
 import React from 'react';
+import {getFormattedTimezoneName} from '../../Utils/DateUtils';
 import './TimezoneName.css'
 
 interface Props {
@@ -13,7 +14,7 @@ class TimezoneName extends React.Component<Props> {
   render() {
     return (
       <div className="TimezoneName">
-        {this.props.timezoneName}
+        {getFormattedTimezoneName(this.props.timezoneName)}
       </div>
     );
   }
