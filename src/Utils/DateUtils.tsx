@@ -25,7 +25,7 @@ export function getHour(timezoneName: string, isLiveTime: boolean, timeOffsetInS
 
 export function getMinute(timezoneName: string, isLiveTime: boolean, timeOffsetInSeconds: number): string {
   let date = getDateObject(timezoneName, isLiveTime, timeOffsetInSeconds);
-  return date.toLocaleString("pt-BR", { timeZone: timezoneName, minute: '2-digit' });
+  return formatMinutesString(date.toLocaleString("pt-BR", { timeZone: timezoneName, minute: '2-digit' }));
 }
 
 export function getDate(timezoneName: string, isLiveTime: boolean, timeOffsetInSeconds: number): string {
