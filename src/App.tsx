@@ -5,6 +5,8 @@ import NewTimezoneForm from './Components/NewTimezoneForm/NewTimezoneForm';
 import {getTimezoneByValue} from './Constants/TimezoneList';
 import {getSavedTimezones} from './Utils/SettingsUtils';
 import {addTimezoneToSavedTimezones} from './Utils/SettingsUtils';
+import {removeTimezoneFromSavedTimezones} from './Utils/SettingsUtils';
+
 
 type Props = {
 }
@@ -33,11 +35,27 @@ class App extends React.Component<Props, State> {
     });    
   }
 
+  removeActiveTimezoneName(timezoneName: string): void {    
+    let newTimezoneList: string[] = this.state.activeTimezoneNames; 
+
+    for(let i: number=0; i<newTimezoneList.length; i++){ 
+      if (newTimezoneList[i] === timezoneName) { 
+        newTimezoneList.splice(i, 1); 
+      }
+  }
+
+  removeTimezoneFromSavedTimezones(timezoneName);
+
+    this.setState({
+      activeTimezoneNames: newTimezoneList
+    });    
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <TimezonesHolder activeTimezoneNames={this.state.activeTimezoneNames}/>
+          <TimezonesHolder activeTimezoneNames={this.state.activeTimezoneNames} handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)}/>
           <NewTimezoneForm onClickAddCallback={this.addActiveTimezoneName.bind(this)}/>
         </header>
       </div>

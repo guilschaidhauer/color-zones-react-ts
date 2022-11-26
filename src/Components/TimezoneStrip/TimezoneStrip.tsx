@@ -8,6 +8,7 @@ import { getHour } from '../../Utils/DateUtils';
 type Props = {
   timezoneName: string;
   width: number;
+  handleDeleteTimezone: (timezoneName: string) => void;
 }
 
 type State = {
@@ -55,7 +56,7 @@ class TimezoneStrip extends React.Component<Props, State> {
           background: this.state.color.color,
           color: ((this.state.color.white) ? 'azure' : '#393f3f')
         }}>
-        <TimezoneCard timezoneName={this.props.timezoneName} />
+        <TimezoneCard timezoneName={this.props.timezoneName} handleDeleteTimezone={this.props.handleDeleteTimezone}/>
       </div>
     );
   }
