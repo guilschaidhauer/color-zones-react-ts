@@ -27,7 +27,7 @@ class App extends React.Component<Props, State> {
     super(props);
     this.state = {
       //activeTimezoneNames: getSavedTimezones(),
-      timezones: []
+      timezones: getSavedTimezones()
     };
   }
 

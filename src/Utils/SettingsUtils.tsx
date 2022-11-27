@@ -63,7 +63,7 @@ export function getSavedTimezones(): Timezone[] {
 export function parseAndSaveTimezonesArray(timezones: Timezone[]) {
   let timezonesString: string[] = [];
 
-  for (let i: number=0; i<timezonesString.length; i++) {
+  for (let i: number=0; i<timezones.length; i++) {
     timezonesString.push(timezones[i].name);
   }
 
