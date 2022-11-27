@@ -18,18 +18,16 @@ export function getDateObject(timezoneName: string, isLiveTime: boolean, timeOff
   return dateWithOffset;
 }
 
-export function getHour(date: Date, isLiveTime: boolean, timeOffsetInSeconds: number): string {
+export function getHour(date: Date): string {
   return date.toLocaleString("pt-BR", { hour: '2-digit' });
 }
 
-export function getMinute(timezoneName: string, isLiveTime: boolean, timeOffsetInSeconds: number): string {
-  let date = getDateObject(timezoneName, isLiveTime, timeOffsetInSeconds);
+export function getMinute(date: Date, timezoneName: string): string {
   return formatMinutesString(date.toLocaleString("pt-BR", { timeZone: timezoneName, minute: '2-digit' }));
 }
 
-export function getDate(timezoneName: string, isLiveTime: boolean, timeOffsetInSeconds: number): string {
-  let date = getDateObject(timezoneName, isLiveTime, timeOffsetInSeconds);
-  return date.toLocaleDateString("pt-BR", { timeZone: timezoneName });
+export function getDate(date: Date): string {
+  return date.toLocaleDateString("pt-BR");
 }
 
 export function getFormattedTimezoneName(timezoneName: string): string {

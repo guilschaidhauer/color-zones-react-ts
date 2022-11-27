@@ -132,8 +132,6 @@ class App extends React.Component<Props, State> {
         <header className="App-header">
           <TimezonesHolder
             timezones={this.state.timezones}
-            isLiveTime={this.state.isLiveTime}
-            timeOffsetInSeconds={this.state.timeOffsetInSeconds}
             handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)} />
           <NewTimezoneForm onClickAddCallback={this.addActiveTimezoneName.bind(this)} />
         </header>
