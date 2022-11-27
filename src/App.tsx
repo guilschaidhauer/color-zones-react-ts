@@ -4,6 +4,7 @@ import TimezonesHolder from './Components/TimezonesHolder/TimezonesHolder';
 import NewTimezoneForm from './Components/NewTimezoneForm/NewTimezoneForm';
 import { getTimezoneByValue } from './Constants/TimezoneList';
 import { getSavedTimezones } from './Utils/SettingsUtils';
+import { getDateObject } from "./Utils/DateUtils";
 import { addTimezoneToSavedTimezones } from './Utils/SettingsUtils';
 import { removeTimezoneFromSavedTimezones } from './Utils/SettingsUtils';
 
@@ -16,7 +17,7 @@ type Props = {
 }
 
 type State = {
-  timezones: Date[]
+  timezones: Timezone[]
 }
 
 class App extends React.Component<Props, State> {
@@ -52,20 +53,25 @@ class App extends React.Component<Props, State> {
   addActiveTimezoneName(timezoneName: string): void {
     const timezoneFullName: string = getTimezoneByValue(timezoneName);
 
-    let newTimezoneList: string[] = this.state.activeTimezoneNames;
-    newTimezoneList.push(timezoneFullName);
+    let newTimezoneList: Timezone[] = this.state.timezones;
+
+    newTimezoneList.push({
+      name: timezoneFullName,
+      date: getDateObject(timezoneFullName, true, 0)
+    });
+
     addTimezoneToSavedTimezones(timezoneFullName);
 
     this.setState({
-      activeTimezoneNames: newTimezoneList
+      timezones: newTimezoneList
     });
   }
 
   removeActiveTimezoneName(timezoneName: string): void {
-    let newTimezoneList: string[] = this.state.activeTimezoneNames;
+    let newTimezoneList: Timezone[] = this.state.timezones;
 
     for (let i: number = 0; i < newTimezoneList.length; i++) {
-      if (newTimezoneList[i] === timezoneName) {
+      if (newTimezoneList[i].name === timezoneName) {
         newTimezoneList.splice(i, 1);
       }
     }
@@ -73,7 +79,7 @@ class App extends React.Component<Props, State> {
     removeTimezoneFromSavedTimezones(timezoneName);
 
     this.setState({
-      activeTimezoneNames: newTimezoneList
+      timezones: newTimezoneList
     });
   }
 
@@ -81,7 +87,7 @@ class App extends React.Component<Props, State> {
     return (
       <div className="App">
         <header className="App-header">
-          <TimezonesHolder activeTimezoneNames={this.state.activeTimezoneNames} handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)} />
+          <TimezonesHolder timezones={this.state.timezones} handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)} />
           <NewTimezoneForm onClickAddCallback={this.addActiveTimezoneName.bind(this)} />
         </header>
       </div>
