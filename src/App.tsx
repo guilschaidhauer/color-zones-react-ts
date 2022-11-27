@@ -7,20 +7,46 @@ import { getSavedTimezones } from './Utils/SettingsUtils';
 import { addTimezoneToSavedTimezones } from './Utils/SettingsUtils';
 import { removeTimezoneFromSavedTimezones } from './Utils/SettingsUtils';
 
+type Timezone = {
+  name: string,
+  date: Date,
+}
 
 type Props = {
 }
 
 type State = {
-  activeTimezoneNames: string[];
+  timezones: Date[]
 }
 
 class App extends React.Component<Props, State> {
+  private timerID: any;
+
   constructor(props: Props) {
     super(props);
     this.state = {
-      activeTimezoneNames: getSavedTimezones()
+      //activeTimezoneNames: getSavedTimezones(),
+      timezones: []
     };
+  }
+
+
+  componentDidMount(): void {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount(): void {
+    clearInterval(this.timerID);
+  }
+
+  tick(): void {
+    //Update
+    /*this.setState({
+      baseString: this.getBaseString()
+    });*/
   }
 
   addActiveTimezoneName(timezoneName: string): void {
