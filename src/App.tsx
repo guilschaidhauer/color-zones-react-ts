@@ -85,7 +85,7 @@ class App extends React.Component<Props, State> {
     let newTimezoneList: Timezone[] = this.state.timezones;
 
     for (let i: number = 0; i < newTimezoneList.length; i++) {
-      newTimezoneList[i].date = getDateObject(newTimezoneList[i].name, true, 0);
+      newTimezoneList[i].date = getDateObject(newTimezoneList[i].name, this.state.isLiveTime, this.state.timeOffsetInSeconds);
     }
 
     this.setState({
