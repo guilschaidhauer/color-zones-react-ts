@@ -4,6 +4,8 @@ import TimezoneStrip from '../TimezoneStrip/TimezoneStrip';
 import { TimezoneStripColors } from '../../Constants/TimezoneStripColors';
 import { timezoneColor } from '../../Constants/TimezoneStripColors';
 import { getHour } from '../../Utils/DateUtils';
+import { getMinute } from '../../Utils/DateUtils';
+
 
 type Props = {
 	activeTimezoneNames: string[];
@@ -66,6 +68,7 @@ class TimezonesHolder extends React.Component<Props, State> {
 					<TimezoneStrip
 						key={timezoneName}
 						hourString={getHour(timezoneName, this.state.isLiveTime, this.state.timeOffsetInSeconds)}
+						minuteString={getMinute(timezoneName, this.state.isLiveTime, this.state.timeOffsetInSeconds)}
 						timezoneName={timezoneName} width={100 / timezoneNames.length}
 						handleDeleteTimezone={this.props.handleDeleteTimezone}
 						isLiveTime={this.state.isLiveTime}

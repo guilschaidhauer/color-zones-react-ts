@@ -1,9 +1,16 @@
-import BaseTime from '../BaseTime/BaseTime';
-import {getMinute} from '../../Utils/DateUtils';
+import React from 'react';
 
-class Minute extends BaseTime {
-  getBaseString(): string {
-    return getMinute(this.props.timezoneName, this.props.isLiveTime, this.props.timeOffsetInSeconds);
+type Props = {
+  minuteString: string
+}
+
+class Minute extends React.Component<Props>  {
+  render() {
+    return (
+      <div className='Minute'>
+        {this.props.minuteString}
+      </div>
+    );
   }
 }
 

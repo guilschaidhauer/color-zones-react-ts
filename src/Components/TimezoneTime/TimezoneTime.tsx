@@ -5,11 +5,8 @@ import Minute from '../Minute/Minute';
 import './TimezoneTime.css'
 
 type Props = {
-	timezoneName: string;
-	isLiveTime: boolean;
-	timeOffsetInSeconds: number;
-
 	hourString: string;
+	minuteString: string;
 }
 
 class TimezoneTime extends React.Component<Props> {
@@ -22,11 +19,7 @@ class TimezoneTime extends React.Component<Props> {
 			<div className="TimezoneTime">
 				<Hour hourString={this.props.hourString}/>
 				<Colon />
-				<Minute
-					timezoneName={this.props.timezoneName}
-					customClassName='Minute'
-					isLiveTime={this.props.isLiveTime}
-					timeOffsetInSeconds={this.props.timeOffsetInSeconds} />
+				<Minute minuteString={this.props.minuteString}/>
 			</div>
 		);
 	}
