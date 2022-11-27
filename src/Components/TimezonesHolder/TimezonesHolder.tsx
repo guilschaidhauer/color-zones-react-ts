@@ -65,6 +65,7 @@ class TimezonesHolder extends React.Component<Props, State> {
 				{timezoneNames.map((timezoneName) =>
 					<TimezoneStrip
 						key={timezoneName}
+						hourString={getHour(timezoneName, this.state.isLiveTime, this.state.timeOffsetInSeconds)}
 						timezoneName={timezoneName} width={100 / timezoneNames.length}
 						handleDeleteTimezone={this.props.handleDeleteTimezone}
 						isLiveTime={this.state.isLiveTime}

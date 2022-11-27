@@ -10,6 +10,7 @@ type Props = {
   isLiveTime: boolean;
   timeOffsetInSeconds: number;
   color: timezoneColor;
+  hourString: string;
 }
 
 class TimezoneStrip extends React.Component<Props> {
@@ -25,6 +26,7 @@ class TimezoneStrip extends React.Component<Props> {
           color: ((this.props.color.white) ? 'azure' : '#393f3f')
         }}>
         <TimezoneCard
+          hourString={this.props.hourString}
           timezoneName={this.props.timezoneName}
           handleDeleteTimezone={this.props.handleDeleteTimezone}
           isLiveTime={this.props.isLiveTime}

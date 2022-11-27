@@ -10,6 +10,7 @@ interface Props {
   handleDeleteTimezone: (timezoneName: string) => void;
   isLiveTime: boolean;
   timeOffsetInSeconds: number;
+  hourString: string;
 }
 
 class TimezoneCard extends React.Component<Props> {
@@ -23,7 +24,8 @@ class TimezoneCard extends React.Component<Props> {
         <TimezoneTime
           timezoneName={this.props.timezoneName}
           isLiveTime={this.props.isLiveTime}
-          timeOffsetInSeconds={this.props.timeOffsetInSeconds} />
+          timeOffsetInSeconds={this.props.timeOffsetInSeconds}
+          hourString={this.props.hourString} />
         <TimezoneDate
           timezoneName={this.props.timezoneName}
           customClassName='TimezoneDate'

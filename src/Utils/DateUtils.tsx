@@ -5,6 +5,8 @@ function getDateObject(timezoneName: string, isLiveTime: boolean, timeOffsetInSe
   const originalDateString = new Date().toLocaleString("en-US", { timeZone: timezoneName });
   const parsedOriginalDate = Date.parse(originalDateString);
   const originalDate = new Date(parsedOriginalDate);
+  console.log('here');
+
 
   if (isLiveTime) {
     return originalDate;

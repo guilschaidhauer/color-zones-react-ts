@@ -1,10 +1,18 @@
-import BaseTime from '../BaseTime/BaseTime';
-import {getHour} from '../../Utils/DateUtils';
+import React from 'react';
 import './Hour.css'
 
-class Hour extends BaseTime {
-  getBaseString(): string {
-    return getHour(this.props.timezoneName, this.props.isLiveTime, this.props.timeOffsetInSeconds);
+type Props = {
+	hourString: string
+}
+
+
+class Hour extends React.Component<Props> {
+  render() {
+    return (
+      <div className='Hour'>
+        {this.props.hourString}
+      </div>
+    );
   }
 }
 
