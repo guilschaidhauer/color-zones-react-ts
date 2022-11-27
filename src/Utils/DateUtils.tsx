@@ -18,8 +18,7 @@ export function getDateObject(timezoneName: string, isLiveTime: boolean, timeOff
   return dateWithOffset;
 }
 
-export function getHour(timezoneName: string, isLiveTime: boolean, timeOffsetInSeconds: number): string {
-  let date = getDateObject(timezoneName, isLiveTime, timeOffsetInSeconds);
+export function getHour(date: Date, isLiveTime: boolean, timeOffsetInSeconds: number): string {
   return date.toLocaleString("pt-BR", { hour: '2-digit' });
 }
 

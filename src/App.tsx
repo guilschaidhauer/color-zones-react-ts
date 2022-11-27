@@ -17,7 +17,10 @@ type Props = {
 }
 
 type State = {
-  timezones: Timezone[]
+  timezones: Timezone[],
+  isLiveTime: boolean;
+  timeOffsetInSeconds: number;
+  wheelIsFree: boolean;
 }
 
 class App extends React.Component<Props, State> {
@@ -26,8 +29,45 @@ class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      timezones: getSavedTimezones()
+      timezones: getSavedTimezones(),
+      isLiveTime: true,
+      timeOffsetInSeconds: 0,
+      wheelIsFree: true,
     };
+  }
+
+  addTimeOffset(offsetInSeconds: number) {
+    const newOffset: number = this.state.timeOffsetInSeconds + offsetInSeconds;
+    let newTimezoneList: Timezone[] = this.state.timezones;
+
+    for (let i:number = 0; i < newTimezoneList.length; i++) {
+      newTimezoneList[i].date = getDateObject(newTimezoneList[i].name, false, newOffset);      
+    }
+
+    //refreshTimeForAllCards();
+
+    this.setState({
+      timezones: newTimezoneList,
+      isLiveTime: false,
+      wheelIsFree: false,
+      timeOffsetInSeconds: newOffset
+    });
+
+    setTimeout(this.setWheelIsFreeToTrue.bind(this), 500);
+  }
+
+  setWheelIsFreeToTrue(): void {
+    this.setState({
+      wheelIsFree: true
+    });
+  }
+
+  onWheel(event: React.WheelEvent): void {
+    if (this.state.wheelIsFree && event.deltaY < -49) {
+      this.addTimeOffset(3600);
+    } else if (this.state.wheelIsFree && event.deltaY > 49) {
+      this.addTimeOffset(-3600);
+    }
   }
 
   componentDidMount(): void {
@@ -88,9 +128,13 @@ class App extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" onWheel={(event) => this.onWheel(event)}>
         <header className="App-header">
-          <TimezonesHolder timezones={this.state.timezones} handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)} />
+          <TimezonesHolder
+            timezones={this.state.timezones}
+            isLiveTime={this.state.isLiveTime}
+            timeOffsetInSeconds={this.state.timeOffsetInSeconds}
+            handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)} />
           <NewTimezoneForm onClickAddCallback={this.addActiveTimezoneName.bind(this)} />
         </header>
       </div>
