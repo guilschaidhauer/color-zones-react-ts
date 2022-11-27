@@ -35,7 +35,7 @@ class TimezonesHolder extends React.Component<Props, State> {
 
 		//refreshTimeForAllCards();
 
-		setTimeout(this.setWheelIsFreeToTrue.bind(this), 250);
+		setTimeout(this.setWheelIsFreeToTrue.bind(this), 500);
 	}
 
 	setWheelIsFreeToTrue(): void {
