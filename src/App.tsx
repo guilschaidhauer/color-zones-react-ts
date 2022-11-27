@@ -53,7 +53,7 @@ class App extends React.Component<Props, State> {
       timeOffsetInSeconds: newOffset
     });
 
-    setTimeout(this.setWheelIsFreeToTrue.bind(this), 500);
+    setTimeout(this.setWheelIsFreeToTrue.bind(this), 250);
   }
 
   setWheelIsFreeToTrue(): void {
