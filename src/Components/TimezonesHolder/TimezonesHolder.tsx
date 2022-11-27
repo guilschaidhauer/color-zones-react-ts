@@ -71,7 +71,7 @@ class TimezonesHolder extends React.Component<Props, State> {
 						hourString={getHour(timezone.name, this.state.isLiveTime, this.state.timeOffsetInSeconds)}
 						minuteString={getMinute(timezone.name, this.state.isLiveTime, this.state.timeOffsetInSeconds)}
 						dateString={getDate(timezone.name, this.state.isLiveTime, this.state.timeOffsetInSeconds)}
-						timezoneName={timezone.name} width={100 / timezone.name.length}
+						timezoneName={timezone.name} width={100 / timezones.length}
 						handleDeleteTimezone={this.props.handleDeleteTimezone}
 						color={this.getTimezoneColor(timezone.name)} />)
 				}
