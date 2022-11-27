@@ -1,9 +1,15 @@
 import React from 'react';
 import './TimezonesHolder.css';
 import TimezoneStrip from '../TimezoneStrip/TimezoneStrip';
+import { TimezoneStripColors } from '../../Constants/TimezoneStripColors';
+import { timezoneColor } from '../../Constants/TimezoneStripColors';
+import { getHour } from '../../Utils/DateUtils';
+import { getMinute } from '../../Utils/DateUtils';
+import { getDate } from '../../Utils/DateUtils';
+import { Timezone } from '../../Utils/SettingsUtils';
 
 type Props = {
-	activeTimezoneNames: string[];
+	timezones: Timezone[];
 	handleDeleteTimezone: (timezoneName: string) => void;
 }
 
@@ -32,7 +38,7 @@ class TimezonesHolder extends React.Component<Props, State> {
 
 		//refreshTimeForAllCards();
 
-		setTimeout(this.setWheelIsFreeToTrue.bind(this), 250);
+		setTimeout(this.setWheelIsFreeToTrue.bind(this), 500);
 	}
 
 	setWheelIsFreeToTrue(): void {
@@ -49,18 +55,25 @@ class TimezonesHolder extends React.Component<Props, State> {
 		}
 	}
 
+	getTimezoneColor(timezoneName: string): timezoneColor {
+    const colorIndex: number = +getHour(timezoneName, this.state.isLiveTime, this.state.timeOffsetInSeconds);
+    return TimezoneStripColors[colorIndex];
+  }
+
 	render() {
-		const timezoneNames = this.props.activeTimezoneNames;
+		const timezones: Timezone[] = this.props.timezones;
 
 		return (
 			<div className="TimezonesHolder" onWheel={(event) => this.onWheel(event)}>
-				{timezoneNames.map((timezoneName) =>
+				{timezones.map((timezone) =>
 					<TimezoneStrip
-						key={timezoneName}
-						timezoneName={timezoneName} width={100 / timezoneNames.length}
+						key={timezone.name}
+						hourString={getHour(timezone.name, this.state.isLiveTime, this.state.timeOffsetInSeconds)}
+						minuteString={getMinute(timezone.name, this.state.isLiveTime, this.state.timeOffsetInSeconds)}
+						dateString={getDate(timezone.name, this.state.isLiveTime, this.state.timeOffsetInSeconds)}
+						timezoneName={timezone.name} width={100 / timezones.length}
 						handleDeleteTimezone={this.props.handleDeleteTimezone}
-						isLiveTime={this.state.isLiveTime}
-						timeOffsetInSeconds={this.state.timeOffsetInSeconds} />)
+						color={this.getTimezoneColor(timezone.name)} />)
 				}
 			</div>
 		);

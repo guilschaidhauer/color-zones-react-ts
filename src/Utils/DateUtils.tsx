@@ -1,10 +1,12 @@
 import { TimezoneList } from '../Constants/TimezoneList';
 
-function getDateObject(timezoneName: string, isLiveTime: boolean, timeOffsetInSeconds: number) {
+export function getDateObject(timezoneName: string, isLiveTime: boolean, timeOffsetInSeconds: number): Date {
   // Create original date "Date" object
   const originalDateString = new Date().toLocaleString("en-US", { timeZone: timezoneName });
   const parsedOriginalDate = Date.parse(originalDateString);
   const originalDate = new Date(parsedOriginalDate);
+  console.log('here');
+
 
   if (isLiveTime) {
     return originalDate;
