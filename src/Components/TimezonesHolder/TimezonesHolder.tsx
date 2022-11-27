@@ -1,6 +1,9 @@
 import React from 'react';
 import './TimezonesHolder.css';
 import TimezoneStrip from '../TimezoneStrip/TimezoneStrip';
+import { TimezoneStripColors } from '../../Constants/TimezoneStripColors';
+import { timezoneColor } from '../../Constants/TimezoneStripColors';
+import { getHour } from '../../Utils/DateUtils';
 
 type Props = {
 	activeTimezoneNames: string[];
@@ -49,6 +52,11 @@ class TimezonesHolder extends React.Component<Props, State> {
 		}
 	}
 
+	getTimezoneColor(timezoneName: string): timezoneColor {
+    const colorIndex: number = +getHour(timezoneName, this.state.isLiveTime, this.state.timeOffsetInSeconds);
+    return TimezoneStripColors[colorIndex];
+  }
+
 	render() {
 		const timezoneNames = this.props.activeTimezoneNames;
 
@@ -60,7 +68,8 @@ class TimezonesHolder extends React.Component<Props, State> {
 						timezoneName={timezoneName} width={100 / timezoneNames.length}
 						handleDeleteTimezone={this.props.handleDeleteTimezone}
 						isLiveTime={this.state.isLiveTime}
-						timeOffsetInSeconds={this.state.timeOffsetInSeconds} />)
+						timeOffsetInSeconds={this.state.timeOffsetInSeconds}
+						color={this.getTimezoneColor(timezoneName)} />)
 				}
 			</div>
 		);
