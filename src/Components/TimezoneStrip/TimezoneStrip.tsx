@@ -7,11 +7,10 @@ type Props = {
   timezoneName: string;
   width: number;
   handleDeleteTimezone: (timezoneName: string) => void;
-  isLiveTime: boolean;
-  timeOffsetInSeconds: number;
   color: timezoneColor;
   hourString: string;
   minuteString: string;
+  dateString: string;
 }
 
 class TimezoneStrip extends React.Component<Props> {
@@ -29,10 +28,9 @@ class TimezoneStrip extends React.Component<Props> {
         <TimezoneCard
           hourString={this.props.hourString}
           minuteString={this.props.minuteString}
+          dateString={this.props.dateString}
           timezoneName={this.props.timezoneName}
-          handleDeleteTimezone={this.props.handleDeleteTimezone}
-          isLiveTime={this.props.isLiveTime}
-          timeOffsetInSeconds={this.props.timeOffsetInSeconds} />
+          handleDeleteTimezone={this.props.handleDeleteTimezone} />
       </div>
     );
   }

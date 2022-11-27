@@ -1,10 +1,17 @@
-import BaseTime from '../BaseTime/BaseTime';
-import {getDate} from '../../Utils/DateUtils';
+import React from 'react';
 import './TimezoneDate.css';
 
-class TimezoneDate extends BaseTime {
-  getBaseString(): string {
-    return getDate(this.props.timezoneName, this.props.isLiveTime, this.props.timeOffsetInSeconds);
+type Props = {
+	dateString: string
+}
+
+class TimezoneDate extends React.Component<Props> {
+  render() {
+    return (
+      <div className='Hour'>
+        {this.props.dateString}
+      </div>
+    );
   }
 }
 
