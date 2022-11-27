@@ -26,11 +26,9 @@ class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      //activeTimezoneNames: getSavedTimezones(),
       timezones: getSavedTimezones()
     };
   }
-
 
   componentDidMount(): void {
     this.timerID = setInterval(
@@ -44,10 +42,15 @@ class App extends React.Component<Props, State> {
   }
 
   tick(): void {
-    //Update
-    /*this.setState({
-      baseString: this.getBaseString()
-    });*/
+    let newTimezoneList: Timezone[] = this.state.timezones;
+
+    for (let i: number = 0; i < newTimezoneList.length; i++) {
+      newTimezoneList[i].date = getDateObject(newTimezoneList[i].name, true, 0);
+    }
+
+    this.setState({
+      timezones: newTimezoneList
+    });
   }
 
   addActiveTimezoneName(timezoneName: string): void {
