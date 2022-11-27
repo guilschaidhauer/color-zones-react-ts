@@ -5,7 +5,6 @@ type Props = {
 	hourString: string
 }
 
-
 class Hour extends React.Component<Props> {
   render() {
     return (
