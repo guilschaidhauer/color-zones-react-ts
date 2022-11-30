@@ -133,7 +133,7 @@ class ColorZone extends React.Component<Props, State> {
           timezones={this.state.timezones}
           handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)} />
         <NewTimezoneForm onClickAddCallback={this.addActiveTimezoneName.bind(this)} />
-        <ResetTime />
+        {!this.state.isLiveTime && (<ResetTime />)}
       </div>
     );
   }
