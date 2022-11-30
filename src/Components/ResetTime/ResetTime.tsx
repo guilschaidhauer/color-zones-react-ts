@@ -1,9 +1,12 @@
 import React from "react";
+import './ResetTime.css'
 
 class ResetTime extends React.Component {
   render() {
     return (
-      <button className="ResetTime">Reset time</button>
+      <div className="ResetTime">
+        <button className="ResetTimeButton">Reset time</button>
+      </div>
     );
   }
 }

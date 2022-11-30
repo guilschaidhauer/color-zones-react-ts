@@ -1,6 +1,7 @@
 import React from 'react';
 import TimezonesHolder from '../TimezonesHolder/TimezonesHolder';
 import NewTimezoneForm from '../NewTimezoneForm/NewTimezoneForm';
+import ResetTime from '../ResetTime/ResetTime';
 import { getTimezoneByValue } from '../../Constants/TimezoneList';
 import { getSavedTimezones } from '../../Utils/SettingsUtils';
 import { getDateObject } from "../../Utils/DateUtils";
@@ -132,6 +133,7 @@ class ColorZone extends React.Component<Props, State> {
           timezones={this.state.timezones}
           handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)} />
         <NewTimezoneForm onClickAddCallback={this.addActiveTimezoneName.bind(this)} />
+        <ResetTime />
       </div>
     );
   }
