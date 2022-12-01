@@ -64,7 +64,9 @@ class ColorZone extends React.Component<Props, State> {
 
   setIsLiveTimeToTrue(): void {
     this.setState({
-      isLiveTime: true
+      isLiveTime: true,
+      timezones: getSavedTimezones(),
+      timeOffsetInSeconds: 0
     });
   }
 
