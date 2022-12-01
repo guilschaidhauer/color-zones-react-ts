@@ -62,6 +62,12 @@ class ColorZone extends React.Component<Props, State> {
     });
   }
 
+  setIsLiveTimeToTrue(): void {
+    this.setState({
+      isLiveTime: true
+    });
+  }
+
   onWheel(event: React.WheelEvent): void {
     if (this.state.wheelIsFree && event.deltaY < -49) {
       this.addTimeOffset(3600);
@@ -133,7 +139,7 @@ class ColorZone extends React.Component<Props, State> {
           timezones={this.state.timezones}
           handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)} />
         <NewTimezoneForm onClickAddCallback={this.addActiveTimezoneName.bind(this)} />
-        {!this.state.isLiveTime && (<ResetTime />)}
+        {!this.state.isLiveTime && (<ResetTime onClickCallback={this.setIsLiveTimeToTrue.bind(this)}/>)}
       </div>
     );
   }
