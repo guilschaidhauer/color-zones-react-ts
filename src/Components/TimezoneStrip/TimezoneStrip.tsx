@@ -22,15 +22,15 @@ class TimezoneStrip extends React.Component<Props> {
       <div className="TimezoneStrip"
         style={{
           width: this.props.width + '%',
-          background: this.props.color.color,
-          color: ((this.props.color.white) ? 'azure' : '#393f3f')
+          background: this.props.color.color
         }}>
         <TimezoneCard
           hourString={this.props.hourString}
           minuteString={this.props.minuteString}
           dateString={this.props.dateString}
           timezoneName={this.props.timezoneName}
-          handleDeleteTimezone={this.props.handleDeleteTimezone} />
+          handleDeleteTimezone={this.props.handleDeleteTimezone}
+          white={this.props.color.white} />
       </div>
     );
   }

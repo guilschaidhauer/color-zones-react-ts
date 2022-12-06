@@ -11,6 +11,7 @@ interface Props {
   hourString: string;
   minuteString: string;
   dateString: string;
+  white: boolean
 }
 
 class TimezoneCard extends React.Component<Props> {
@@ -20,7 +21,10 @@ class TimezoneCard extends React.Component<Props> {
 
   render() {
     return (
-      <div className="TimezoneCard">
+      <div className="TimezoneCard"
+        style={{
+          color: ((this.props.white) ? 'azure' : '#393f3f')
+        }}>
         <TimezoneTime
           hourString={this.props.hourString}
           minuteString={this.props.minuteString} />
