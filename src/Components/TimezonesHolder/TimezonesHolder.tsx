@@ -19,7 +19,7 @@ class TimezonesHolder extends React.Component<Props> {
 	}
 
 	getTimezoneColor(date: Date): timezoneColor {
-    const colorIndex: number = +getHour(date);
+    const colorIndex: number = +getHour(date) - 1;
     return TimezoneStripColors[colorIndex];
   }
 
