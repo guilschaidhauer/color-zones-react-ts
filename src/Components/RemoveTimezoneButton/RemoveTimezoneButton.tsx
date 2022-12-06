@@ -4,6 +4,7 @@ import './RemoveTimezoneButton.css'
 type Props = {
   timezoneName: string;
   onClickCallback: any;
+  white: boolean
 }
 
 class RemoveTimezoneButton extends React.Component<Props> {
@@ -17,7 +18,11 @@ class RemoveTimezoneButton extends React.Component<Props> {
 
   render() {
     return (
-      <button className="RemoveTimezoneButton" onClick={this.handleClick.bind(this)}>X</button>
+      <button className="RemoveTimezoneButton"
+      style={{
+        color: ((this.props.white) ? 'azure' : '#393f3f')
+      }} 
+      onClick={this.handleClick.bind(this)}>X</button>
     );
   }
 }
