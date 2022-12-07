@@ -21,7 +21,8 @@ class RemoveTimezoneButton extends React.Component<Props> {
     return (
       <button className="RemoveTimezoneButton"
       style={{
-        visibility: ((this.props.visible) ? 'visible' : 'hidden')
+        visibility: ((this.props.visible) ? 'visible' : 'hidden'),
+        opacity: ((this.props.visible) ? '1' : '0')
       }} 
       onClick={this.handleClick.bind(this)}>X</button>
     );
