@@ -19,9 +19,19 @@ class TimezoneCard extends React.Component<Props> {
     super(props);
   }
 
+  onMouseOver(): void {
+    console.log("Entered");
+  }
+
+  onMouseLeave(): void {
+    console.log("Left");
+  }
+
   render() {
     return (
       <div className="TimezoneCard"
+        onMouseOver={this.onMouseOver}
+        onMouseLeave={this.onMouseLeave}
         style={{
           color: ((this.props.white) ? 'azure' : '#393f3f')
         }}>

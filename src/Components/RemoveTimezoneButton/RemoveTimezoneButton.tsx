@@ -4,6 +4,7 @@ import './RemoveTimezoneButton.css'
 type Props = {
   timezoneName: string;
   onClickCallback: any;
+  //visible: boolean;
   white: boolean
 }
 
