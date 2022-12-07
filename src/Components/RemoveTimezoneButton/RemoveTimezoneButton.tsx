@@ -4,7 +4,7 @@ import './RemoveTimezoneButton.css'
 type Props = {
   timezoneName: string;
   onClickCallback: any;
-  //visible: boolean;
+  visible: boolean;
   white: boolean
 }
 
@@ -21,7 +21,8 @@ class RemoveTimezoneButton extends React.Component<Props> {
     return (
       <button className="RemoveTimezoneButton"
       style={{
-        color: ((this.props.white) ? 'azure' : '#393f3f')
+        color: ((this.props.white) ? 'azure' : '#393f3f'),
+        visibility: ((this.props.visible) ? 'visible' : 'hidden')
       }} 
       onClick={this.handleClick.bind(this)}>X</button>
     );

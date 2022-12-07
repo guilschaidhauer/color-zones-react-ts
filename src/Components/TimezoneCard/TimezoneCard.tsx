@@ -14,24 +14,39 @@ type Props = {
   white: boolean
 }
 
-class TimezoneCard extends React.Component<Props> {
+type State = {
+  isSelected: boolean
+}
+
+class TimezoneCard extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    this.state = {
+      isSelected: false
+    }
   }
 
   onMouseOver(): void {
-    console.log("Entered");
+    if (!this.state.isSelected) {
+      this.setState({
+        isSelected: true
+      })
+    }
   }
 
   onMouseLeave(): void {
-    console.log("Left");
+    if (this.state.isSelected) {
+      this.setState({
+        isSelected: false
+      })
+    }
   }
 
   render() {
     return (
       <div className="TimezoneCard"
-        onMouseOver={this.onMouseOver}
-        onMouseLeave={this.onMouseLeave}
+        onMouseOver={this.onMouseOver.bind(this)}
+        onMouseLeave={this.onMouseLeave.bind(this)}
         style={{
           color: ((this.props.white) ? 'azure' : '#393f3f')
         }}>
@@ -43,6 +58,7 @@ class TimezoneCard extends React.Component<Props> {
         <RemoveTimezoneButton 
           timezoneName={this.props.timezoneName} 
           onClickCallback={this.props.handleDeleteTimezone}
+          visible={this.state.isSelected}
           white={this.props.white} />
       </div>
     );
