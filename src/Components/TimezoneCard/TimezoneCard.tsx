@@ -48,7 +48,8 @@ class TimezoneCard extends React.Component<Props, State> {
         onMouseOver={this.onMouseOver.bind(this)}
         onMouseLeave={this.onMouseLeave.bind(this)}
         style={{
-          color: ((this.props.white) ? 'azure' : '#393f3f')
+          color: ((this.props.white) ? 'azure' : '#393f3f'),
+          background: ((this.state.isSelected) ? 'azure' : '#ffffff00')
         }}>
         <TimezoneTime
           hourString={this.props.hourString}
