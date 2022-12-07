@@ -1,6 +1,18 @@
 .TimezoneCard {
   display: flex;
   color: azure;
+  background: rgba(255, 255, 255, 0);
+  font-family: Verdana, Geneva, sans-serif;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+
+.TimezoneCardSelected {
+  display: flex;
+  color: #393f3f;
+  background: azure;
   font-family: Verdana, Geneva, sans-serif;
   flex-direction: column;
   justify-content: space-between;
