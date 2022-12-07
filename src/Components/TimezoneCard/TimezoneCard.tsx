@@ -5,7 +5,7 @@ import TimezoneName from '../TimezoneName/TimezoneName';
 import RemoveTimezoneButton from '../RemoveTimezoneButton/RemoveTimezoneButton';
 import './TimezoneCard.css'
 
-interface Props {
+type Props = {
   timezoneName: string;
   handleDeleteTimezone: (timezoneName: string) => void;
   hourString: string;
