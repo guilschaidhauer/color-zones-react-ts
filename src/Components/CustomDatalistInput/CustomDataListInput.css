@@ -1,3 +1,10 @@
 .DataListInput {
   margin-bottom: 15px;
 }
+
+.ListboxOption {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+}

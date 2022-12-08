@@ -31,6 +31,9 @@ class CustomDatalistInput extends React.Component<Props> {
     return (
       <DatalistInput
         className="DataListInput"
+        listboxOptionProps={
+          {className: 'ListboxOption'}
+        }
         placeholder="Melbourne"
         label=""
         onSelect={(item) => this.props.onSelect(item.value)}
