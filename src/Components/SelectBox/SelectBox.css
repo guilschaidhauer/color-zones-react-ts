@@ -12,3 +12,10 @@
   border: none;
   text-align: center;
 }
+
+.Label {
+  font-size: 20px;
+  color: #393f3f;
+  font-weight: bold;
+  margin-bottom: 15px;
+}

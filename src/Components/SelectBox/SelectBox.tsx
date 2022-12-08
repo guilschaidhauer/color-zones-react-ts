@@ -35,6 +35,7 @@ class SelectBox extends React.Component<Props, State> {
   render() {
     return (
       <div className="SelectBox">
+        <div className="Label">Choose a city</div>
         <CustomDataListInput onSelect={this.onSelect.bind(this)}/>
         <CustomButton label="Add" onClickCallback={this.onClickAdd.bind(this)}/>
         <CustomButton label="Cancel" onClickCallback={this.props.onClickCancelCallback}/>
