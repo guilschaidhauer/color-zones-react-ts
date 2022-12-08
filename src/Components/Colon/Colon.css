@@ -1,0 +1,8 @@
+.Colon {
+  transition: opacity .5s;
+}
+
+.ColonOff {
+  opacity: 0;
+  transition: opacity .5s;
+}
