@@ -1,6 +1,8 @@
 import React from 'react';
+import './CustomButtom.css'
 
 type Props = {
+  className: string;
   label: string;
   onClickCallback: any;
 }
@@ -16,7 +18,7 @@ class CustomButton extends React.Component<Props> {
 
   render() {
     return (
-      <button className="CustomButtom" onClick={this.handleClick.bind(this)}>{this.props.label}</button>
+      <button className={this.props.className} onClick={this.handleClick.bind(this)}>{this.props.label}</button>
     );
   }
 }

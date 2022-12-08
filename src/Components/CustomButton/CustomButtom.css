@@ -1,0 +1,23 @@
+.Add {
+  margin: 5px;
+  background-color: #9ac49f; /* Green */
+  border: none;
+  color: #393f3f;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-style: bold;
+}
+
+.Cancel {
+  background-color: #b48083;
+  border: none;
+  color: #393f3f;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
