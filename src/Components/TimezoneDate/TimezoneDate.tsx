@@ -8,7 +8,7 @@ type Props = {
 class TimezoneDate extends React.Component<Props> {
   render() {
     return (
-      <div className='Hour'>
+      <div className='TimezoneDate'>
         {this.props.dateString}
       </div>
     );
