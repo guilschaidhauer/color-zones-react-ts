@@ -5,7 +5,9 @@
   right: 120px;
   width: 35%;
   height: 60px;
-  background-color: rgba(240, 255, 255, 0.6);
+  padding: 20px;
+  background-color: rgba(240, 255, 255, 0.9);
+  width: 35%;
   color: #393f3f;
   border: none;
   text-align: center;
