@@ -30,7 +30,7 @@ class CustomDatalistInput extends React.Component<Props> {
     return (
       <DatalistInput
         placeholder="Melbourne"
-        label="Choose a city"
+        label=""
         onSelect={(item) => this.props.onSelect(item.value)}
         items={timezones}
       />
