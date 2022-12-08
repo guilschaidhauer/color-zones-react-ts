@@ -2,6 +2,7 @@ import React from 'react';
 import DatalistInput from 'react-datalist-input';
 import 'react-datalist-input/dist/styles.css';
 import {TimezoneList} from '../../Constants/TimezoneList'
+import './CustomDataListInput.css'
 
 type Timezone = {
   id: string;
@@ -29,6 +30,7 @@ class CustomDatalistInput extends React.Component<Props> {
 
     return (
       <DatalistInput
+        className="DataListInput"
         placeholder="Melbourne"
         label=""
         onSelect={(item) => this.props.onSelect(item.value)}
