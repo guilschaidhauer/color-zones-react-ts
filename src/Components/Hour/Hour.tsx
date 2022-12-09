@@ -20,7 +20,7 @@ class Hour extends React.Component<Props, State> {
   }
 
   onClick(e: any) {
-    console.log(e);
+    e.target.set
     this.setState({
       isEditable: true
     });
