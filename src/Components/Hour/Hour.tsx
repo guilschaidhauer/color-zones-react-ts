@@ -1,4 +1,5 @@
 import React from "react";
+import HourInput from "../HourInput/HourInput";
 import "./Hour.css";
 
 type Props = {
@@ -35,10 +36,7 @@ class Hour extends React.Component<Props, State> {
     return (
       <div className="Hour">
         {!this.state.isEditable ? <div onClick={e => this.onClick(e)}>{this.props.hourString}</div> : 
-          <input 
-            value={this.state.inputHour}
-            onChange={e => this.setState({inputHour: e.target.value})}
-            onBlur={this.onBlur.bind(this)}/>
+          <HourInput hourString={this.props.hourString} />
         }
       </div>
     );
