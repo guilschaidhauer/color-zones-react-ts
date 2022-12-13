@@ -2,6 +2,7 @@ import React from "react";
 
 type Props = {
   hourString: string;
+  onBlur: () => void;
 };
 
 class HourInput extends React.Component<Props> {
@@ -9,12 +10,6 @@ class HourInput extends React.Component<Props> {
 
   constructor(props: Props) {
     super(props);
-  }
-
-  onBlur(): void {
-    this.setState({
-      isEditable: false,
-    });
   }
 
   componentDidMount(): void {
@@ -30,7 +25,7 @@ class HourInput extends React.Component<Props> {
           }}
           value={this.props.hourString}
           onChange={(e) => this.setState({ inputHour: e.target.value })}
-          onBlur={this.onBlur.bind(this)}
+          onBlur={this.props.onBlur}
         />
       </div>
     );

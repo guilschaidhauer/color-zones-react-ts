@@ -36,7 +36,7 @@ class Hour extends React.Component<Props, State> {
     return (
       <div className="Hour">
         {!this.state.isEditable ? <div onClick={e => this.onClick(e)}>{this.props.hourString}</div> : 
-          <HourInput hourString={this.props.hourString} />
+          <HourInput hourString={this.props.hourString} onBlur={this.onBlur.bind(this)} />
         }
       </div>
     );
