@@ -1,0 +1,15 @@
+.HourInput {
+  font-size: 40px;
+  color: #4b4b4b;
+  background-color: inherit;
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  text-align: end;
+  padding: 0px;
+  margin: 0px;
+  height: 41px;
+  width: 57px;
+  resize: none;
+  border: none;
+  outline: none;
+}

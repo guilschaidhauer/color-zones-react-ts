@@ -1,4 +1,5 @@
 import React from "react";
+import './HourInput.css';
 
 type Props = {
   hourString: string;
@@ -18,16 +19,14 @@ class HourInput extends React.Component<Props> {
 
   render() {
     return (
-      <div className="HourInput">
-        <input
-          ref={(input) => {
-            this.input = input;
-          }}
-          value={this.props.hourString}
-          onChange={(e) => this.setState({ inputHour: e.target.value })}
-          onBlur={this.props.onBlur}
-        />
-      </div>
+      <input className="HourInput"
+        ref={(input) => {
+          this.input = input;
+        }}
+        value={this.props.hourString}
+        onChange={(e) => this.setState({ inputHour: e.target.value })}
+        onBlur={this.props.onBlur}
+      />
     );
   }
 }
