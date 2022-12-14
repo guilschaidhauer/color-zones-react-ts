@@ -139,7 +139,8 @@ class ColorZone extends React.Component<Props, State> {
       <div className="ColorZone" onWheel={(event) => this.onWheel(event)}>
         <TimezonesHolder
           timezones={this.state.timezones}
-          handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)} />
+          handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)}
+          addTimeOffset={this.addTimeOffset.bind(this)} />
         <NewTimezoneForm onClickAddCallback={this.addActiveTimezoneName.bind(this)} />
         {!this.state.isLiveTime && (<ResetTime onClickCallback={this.setIsLiveTimeToTrue.bind(this)}/>)}
       </div>

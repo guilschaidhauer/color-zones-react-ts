@@ -7,6 +7,7 @@ import './TimezoneTime.css'
 type Props = {
 	hourString: string;
 	minuteString: string;
+	addTimeOffset: (offsetInSeconds: number) => void;
 }
 
 class TimezoneTime extends React.Component<Props> {
@@ -17,7 +18,7 @@ class TimezoneTime extends React.Component<Props> {
 	render() {
 		return (
 			<div className="TimezoneTime">
-				<Hour hourString={this.props.hourString}/>
+				<Hour hourString={this.props.hourString} addTimeOffset={this.props.addTimeOffset}/>
 				<Colon />
 				<Minute minuteString={this.props.minuteString}/>
 			</div>

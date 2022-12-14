@@ -11,6 +11,7 @@ type Props = {
   hourString: string;
   minuteString: string;
   dateString: string;
+  addTimeOffset: (offsetInSeconds: number) => void;
 }
 
 class TimezoneStrip extends React.Component<Props> {
@@ -30,7 +31,8 @@ class TimezoneStrip extends React.Component<Props> {
           dateString={this.props.dateString}
           timezoneName={this.props.timezoneName}
           handleDeleteTimezone={this.props.handleDeleteTimezone}
-          white={this.props.color.white} />
+          white={this.props.color.white}
+          addTimeOffset={this.props.addTimeOffset} />
       </div>
     );
   }

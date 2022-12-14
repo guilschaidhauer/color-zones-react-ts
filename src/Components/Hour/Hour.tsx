@@ -4,6 +4,7 @@ import "./Hour.css";
 
 type Props = {
   hourString: string;
+  addTimeOffset: (offsetInSeconds: number) => void;
 };
 
 type State = {

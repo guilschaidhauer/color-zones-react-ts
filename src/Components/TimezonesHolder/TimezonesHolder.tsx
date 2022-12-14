@@ -11,6 +11,7 @@ import { Timezone } from '../../Utils/SettingsUtils';
 type Props = {
 	timezones: Timezone[];
 	handleDeleteTimezone: (timezoneName: string) => void;
+	addTimeOffset: (offsetInSeconds: number) => void;
 }
 
 class TimezonesHolder extends React.Component<Props> {
@@ -41,7 +42,8 @@ class TimezonesHolder extends React.Component<Props> {
 						dateString={getDate(timezone.date)}
 						timezoneName={timezone.name} width={100 / timezones.length}
 						handleDeleteTimezone={this.props.handleDeleteTimezone}
-						color={this.getTimezoneColor(timezone.date)} />)
+						color={this.getTimezoneColor(timezone.date)}
+						addTimeOffset={this.props.addTimeOffset} />)
 				}
 			</div>
 		);

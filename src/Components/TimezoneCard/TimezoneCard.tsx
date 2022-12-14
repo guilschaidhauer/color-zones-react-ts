@@ -11,7 +11,8 @@ type Props = {
   hourString: string;
   minuteString: string;
   dateString: string;
-  white: boolean
+  white: boolean;
+  addTimeOffset: (offsetInSeconds: number) => void;
 }
 
 type State = {
@@ -52,7 +53,8 @@ class TimezoneCard extends React.Component<Props, State> {
         onMouseLeave={this.onMouseLeave.bind(this)} >
         <TimezoneTime
           hourString={this.props.hourString}
-          minuteString={this.props.minuteString} />
+          minuteString={this.props.minuteString}
+          addTimeOffset={this.props.addTimeOffset} />
         <TimezoneDate dateString={this.props.dateString}/>
         <TimezoneName timezoneName={this.props.timezoneName} />
         <RemoveTimezoneButton 
