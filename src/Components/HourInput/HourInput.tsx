@@ -3,7 +3,7 @@ import './HourInput.css';
 
 type Props = {
   hourString: string;
-  onBlur: () => void;
+  onBlur: (newHourString: string) => void;
 };
 
 class HourInput extends React.Component<Props> {
@@ -25,7 +25,7 @@ class HourInput extends React.Component<Props> {
         }}
         value={this.props.hourString}
         onChange={(e) => this.setState({ inputHour: e.target.value })}
-        onBlur={this.props.onBlur}
+        onBlur={(e) => this.props.onBlur(this.input.value)}
       />
     );
   }

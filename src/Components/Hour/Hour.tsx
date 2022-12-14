@@ -27,10 +27,15 @@ class Hour extends React.Component<Props, State> {
     });
   }
 
-  onBlur(): void {
+  onBlur(newHourString: string): void {
+    this.props.addTimeOffset(this.calculateHourDifferenceInSeconds(newHourString));
     this.setState({ 
       isEditable: false 
     });
+  }
+
+  calculateHourDifferenceInSeconds(newHourString: string): number {
+    return (parseInt(newHourString) - parseInt(this.props.hourString)) * 3600;
   }
 
   render() {
