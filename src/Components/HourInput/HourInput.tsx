@@ -11,6 +11,9 @@ class HourInput extends React.Component<Props> {
 
   constructor(props: Props) {
     super(props);
+    this.state = {
+      inputHour: this.props.hourString
+    }
   }
 
   componentDidMount(): void {
@@ -23,8 +26,7 @@ class HourInput extends React.Component<Props> {
         ref={(input) => {
           this.input = input;
         }}
-        value={this.props.hourString}
-        onChange={(e) => this.setState({ inputHour: e.target.value })}
+        placeholder={this.props.hourString}
         onBlur={(e) => this.props.onBlur(this.input.value)}
       />
     );
