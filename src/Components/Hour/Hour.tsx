@@ -28,10 +28,20 @@ class Hour extends React.Component<Props, State> {
   }
 
   onBlur(newHourString: string): void {
-    this.props.addTimeOffset(this.calculateHourDifferenceInSeconds(newHourString));
-    this.setState({ 
-      isEditable: false 
+    this.setState({
+      isEditable: false
     });
+
+    if(!this.isValidHour(newHourString)) {
+      return;
+    }
+
+    this.props.addTimeOffset(this.calculateHourDifferenceInSeconds(newHourString));
+  }
+
+  isValidHour(hourString: string): boolean {
+    const hour: number = parseInt(hourString);
+    return (hour >= 0 && hour <= 23 && hour !== null);
   }
 
   calculateHourDifferenceInSeconds(newHourString: string): number {
@@ -41,7 +51,7 @@ class Hour extends React.Component<Props, State> {
   render() {
     return (
       <div className="Hour">
-        {!this.state.isEditable ? <div onClick={e => this.onClick(e)}>{this.props.hourString}</div> : 
+        {!this.state.isEditable ? <div onClick={e => this.onClick(e)}>{this.props.hourString}</div> :
           <HourInput hourString={this.props.hourString} onBlur={this.onBlur.bind(this)} />
         }
       </div>
