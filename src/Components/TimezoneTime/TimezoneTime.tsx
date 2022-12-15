@@ -20,7 +20,7 @@ class TimezoneTime extends React.Component<Props> {
 			<div className="TimezoneTime">
 				<Hour hourString={this.props.hourString} addTimeOffset={this.props.addTimeOffset}/>
 				<Colon />
-				<Minute minuteString={this.props.minuteString}/>
+				<Minute minuteString={this.props.minuteString} addTimeOffset={this.props.addTimeOffset}/>
 			</div>
 		);
 	}
