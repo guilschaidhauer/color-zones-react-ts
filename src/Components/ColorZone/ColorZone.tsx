@@ -25,7 +25,7 @@ type State = {
 
 class ColorZone extends React.Component<Props, State> {
   private timerID: any;
-  private hourTimeID: any;
+  private minuteTimeID: any;
 
   constructor(props: Props) {
     super(props);
@@ -96,7 +96,7 @@ class ColorZone extends React.Component<Props, State> {
   updateHour(): void {
     this.updateTime();
 
-    this.hourTimeID = setInterval(
+    this.minuteTimeID = setInterval(
       () => this.updateTime(),
       60000
     );
@@ -120,7 +120,7 @@ class ColorZone extends React.Component<Props, State> {
 
   componentWillUnmount(): void {
     clearInterval(this.timerID);
-    clearInterval(this.hourTimeID);
+    clearInterval(this.minuteTimeID);
   }
 
   tick(): void {
