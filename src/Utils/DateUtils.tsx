@@ -41,7 +41,7 @@ export function getFormattedTimezoneName(timezoneName: string): string {
   return returnString;
 }
 
-export function getNextMinute(): number {
+export function getTimeUntilNextMinute(): number {
   // Get the current date and time
   let now: Date = new Date();
 
@@ -51,6 +51,7 @@ export function getNextMinute(): number {
   // Calculate the time until the start of the next minute
   return nextMinute.getTime() - now.getTime();
 }
+
 
 function formatMinutesString(minutesString: string) {
   if (minutesString.length === 1) {

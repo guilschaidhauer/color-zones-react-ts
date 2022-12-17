@@ -7,7 +7,7 @@ import { getSavedTimezones } from "../../Utils/SettingsUtils";
 import { getDateObject } from "../../Utils/DateUtils";
 import { addTimezoneToSavedTimezones } from "../../Utils/SettingsUtils";
 import { removeTimezoneFromSavedTimezones } from "../../Utils/SettingsUtils";
-import { getNextMinute } from "../../Utils/DateUtils";
+import { getTimeUntilNextMinute } from "../../Utils/DateUtils";
 
 type Timezone = {
   name: string;
@@ -26,6 +26,7 @@ type State = {
 class ColorZone extends React.Component<Props, State> {
   private timerID: any;
   private minuteTimeID: any;
+  private TimeID: any;
 
   constructor(props: Props) {
     super(props);
@@ -84,7 +85,7 @@ class ColorZone extends React.Component<Props, State> {
   }
 
   componentDidMount(): void {
-    setTimeout(this.updateHour.bind(this), getNextMinute());
+    setTimeout(this.updateHour.bind(this), getTimeUntilNextMinute());
 
     //this.hourTimeID = setInterval(() => this.tick(), 1000);
     /*this.timerID = setInterval(
