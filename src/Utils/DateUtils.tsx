@@ -63,6 +63,14 @@ export function getTimeUntilNextHour(): number {
   return nextMinute.getTime() - now.getTime();
 }
 
+export function getTimezoneAbbreviation(timezoneName: string): string {
+  const date = new Date();
+  const offset = -date.getTimezoneOffset() / 60;
+  const sign = offset >= 0 ? '+' : '-';
+  const hours = Math.abs(offset).toString().padStart(2, '0');
+  return `UTC${sign}${hours}`;
+}
+
 function formatMinutesString(minutesString: string) {
   if (minutesString.length === 1) {
     minutesString = '0' + minutesString;
