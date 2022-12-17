@@ -85,12 +85,6 @@ class ColorZone extends React.Component<Props, State> {
   componentDidMount(): void {
     setTimeout(this.updateMinute.bind(this), getTimeUntilNextMinute());
     setTimeout(this.updateHour.bind(this), getTimeUntilNextHour());
-
-    //this.hourTimeID = setInterval(() => this.tick(), 1000);
-    /*this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );*/
   }
 
   updateMinute(): void {
@@ -130,22 +124,6 @@ class ColorZone extends React.Component<Props, State> {
   componentWillUnmount(): void {
     clearInterval(this.minuteTimerID);
     clearInterval(this.hourTimerID);
-  }
-
-  tick(): void {
-    let newTimezoneList: Timezone[] = this.state.timezones;
-
-    for (let i: number = 0; i < newTimezoneList.length; i++) {
-      newTimezoneList[i].date = getDateObject(
-        newTimezoneList[i].name,
-        this.state.isLiveTime,
-        this.state.timeOffsetInSeconds
-      );
-    }
-
-    this.setState({
-      timezones: newTimezoneList,
-    });
   }
 
   addActiveTimezoneName(timezoneName: string): void {
