@@ -5,23 +5,23 @@ export type timezoneColor = {
 
 export const TimezoneStripColors: timezoneColor[] = [
   {
-    color: '#120d29',
+    color: '#030506',
     white: true
   },
   {
-    color: '#060d1a',
+    color: '#081012',
     white: true
   },
   {
-    color: '#071117',
+    color: '#101e22',
     white: true
   },
   {
-    color: '#061021',
+    color: '#182e34',
     white: true
   },
   {
-    color: '#0e1f33',
+    color: '#23424a',
     white: true
   },
   {
@@ -85,19 +85,19 @@ export const TimezoneStripColors: timezoneColor[] = [
     white: true
   },
   {
-    color: '#1b0f38',
+    color: '#453558',
     white: true
   },
   {
-    color: '#13082e',
+    color: '#352746',
     white: true
   },
   {
-    color: '#110c2b',
+    color: '#2c2138',
     white: true
   },
   {
-    color: '#16112e',
+    color: '#1b1424',
     white: true
   }
 ];
