@@ -52,6 +52,16 @@ export function getTimeUntilNextMinute(): number {
   return nextMinute.getTime() - now.getTime();
 }
 
+export function getTimeUntilNextHour(): number {
+  // Get the current date and time
+  let now: Date = new Date();
+
+  // Calculate the start of the next hour
+  let nextMinute: Date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() + 1, now.getMinutes(), 0, 0);
+
+  // Calculate the time until the start of the next hour
+  return nextMinute.getTime() - now.getTime();
+}
 
 function formatMinutesString(minutesString: string) {
   if (minutesString.length === 1) {
