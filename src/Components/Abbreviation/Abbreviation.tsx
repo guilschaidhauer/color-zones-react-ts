@@ -1,4 +1,5 @@
 import React from 'react';
+import './Abbreviation.css'
 
 type Props = {
   abbreviation: string;
