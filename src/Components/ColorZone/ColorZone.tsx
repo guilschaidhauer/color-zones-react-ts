@@ -82,7 +82,7 @@ class ColorZone extends React.Component<Props, State> {
   }
 
   componentDidMount(): void {
-    setTimeout(this.updateHour.bind(this), getTimeUntilNextMinute());
+    setTimeout(this.updateMinute.bind(this), getTimeUntilNextMinute());
 
     //this.hourTimeID = setInterval(() => this.tick(), 1000);
     /*this.timerID = setInterval(
@@ -91,7 +91,7 @@ class ColorZone extends React.Component<Props, State> {
     );*/
   }
 
-  updateHour(): void {
+  updateMinute(): void {
     this.updateTime();
 
     this.minuteTimerID = setInterval(
