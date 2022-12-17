@@ -1,30 +1,31 @@
-import React from 'react';
-import TimezonesHolder from '../TimezonesHolder/TimezonesHolder';
-import NewTimezoneForm from '../NewTimezoneForm/NewTimezoneForm';
-import ResetTime from '../ResetTime/ResetTime';
-import { getTimezoneByValue } from '../../Constants/TimezoneList';
-import { getSavedTimezones } from '../../Utils/SettingsUtils';
+import React from "react";
+import TimezonesHolder from "../TimezonesHolder/TimezonesHolder";
+import NewTimezoneForm from "../NewTimezoneForm/NewTimezoneForm";
+import ResetTime from "../ResetTime/ResetTime";
+import { getTimezoneByValue } from "../../Constants/TimezoneList";
+import { getSavedTimezones } from "../../Utils/SettingsUtils";
 import { getDateObject } from "../../Utils/DateUtils";
-import { addTimezoneToSavedTimezones } from '../../Utils/SettingsUtils';
-import { removeTimezoneFromSavedTimezones } from '../../Utils/SettingsUtils';
+import { addTimezoneToSavedTimezones } from "../../Utils/SettingsUtils";
+import { removeTimezoneFromSavedTimezones } from "../../Utils/SettingsUtils";
+import { getNextMinute } from "../../Utils/DateUtils";
 
 type Timezone = {
-  name: string,
-  date: Date,
-}
+  name: string;
+  date: Date;
+};
 
-type Props = {
-}
+type Props = {};
 
 type State = {
-  timezones: Timezone[],
+  timezones: Timezone[];
   isLiveTime: boolean;
   timeOffsetInSeconds: number;
   wheelIsFree: boolean;
-}
+};
 
 class ColorZone extends React.Component<Props, State> {
   private timerID: any;
+  private hourTimeID: any;
 
   constructor(props: Props) {
     super(props);
@@ -41,7 +42,11 @@ class ColorZone extends React.Component<Props, State> {
     let newTimezoneList: Timezone[] = this.state.timezones;
 
     for (let i: number = 0; i < newTimezoneList.length; i++) {
-      newTimezoneList[i].date = getDateObject(newTimezoneList[i].name, false, newOffset);
+      newTimezoneList[i].date = getDateObject(
+        newTimezoneList[i].name,
+        false,
+        newOffset
+      );
     }
 
     //refreshTimeForAllCards();
@@ -50,7 +55,7 @@ class ColorZone extends React.Component<Props, State> {
       timezones: newTimezoneList,
       isLiveTime: false,
       wheelIsFree: false,
-      timeOffsetInSeconds: newOffset
+      timeOffsetInSeconds: newOffset,
     });
 
     setTimeout(this.setWheelIsFreeToTrue.bind(this), 250);
@@ -58,7 +63,7 @@ class ColorZone extends React.Component<Props, State> {
 
   setWheelIsFreeToTrue(): void {
     this.setState({
-      wheelIsFree: true
+      wheelIsFree: true,
     });
   }
 
@@ -66,7 +71,7 @@ class ColorZone extends React.Component<Props, State> {
     this.setState({
       isLiveTime: true,
       timezones: getSavedTimezones(),
-      timeOffsetInSeconds: 0
+      timeOffsetInSeconds: 0,
     });
   }
 
@@ -79,25 +84,58 @@ class ColorZone extends React.Component<Props, State> {
   }
 
   componentDidMount(): void {
-    this.timerID = setInterval(
+    setTimeout(this.updateHour.bind(this), getNextMinute());
+
+    //this.hourTimeID = setInterval(() => this.tick(), 1000);
+    /*this.timerID = setInterval(
       () => this.tick(),
       1000
+    );*/
+  }
+
+  updateHour(): void {
+    this.updateTime();
+
+    this.hourTimeID = setInterval(
+      () => this.updateTime(),
+      60000
     );
+  }
+
+  updateTime(): void {
+    let newTimezoneList: Timezone[] = this.state.timezones;
+
+    for (let i: number = 0; i < newTimezoneList.length; i++) {
+      newTimezoneList[i].date = getDateObject(
+        newTimezoneList[i].name,
+        this.state.isLiveTime,
+        this.state.timeOffsetInSeconds
+      );
+    }
+
+    this.setState({
+      timezones: newTimezoneList,
+    });
   }
 
   componentWillUnmount(): void {
     clearInterval(this.timerID);
+    clearInterval(this.hourTimeID);
   }
 
   tick(): void {
     let newTimezoneList: Timezone[] = this.state.timezones;
 
     for (let i: number = 0; i < newTimezoneList.length; i++) {
-      newTimezoneList[i].date = getDateObject(newTimezoneList[i].name, this.state.isLiveTime, this.state.timeOffsetInSeconds);
+      newTimezoneList[i].date = getDateObject(
+        newTimezoneList[i].name,
+        this.state.isLiveTime,
+        this.state.timeOffsetInSeconds
+      );
     }
 
     this.setState({
-      timezones: newTimezoneList
+      timezones: newTimezoneList,
     });
   }
 
@@ -108,13 +146,13 @@ class ColorZone extends React.Component<Props, State> {
 
     newTimezoneList.push({
       name: timezoneFullName,
-      date: getDateObject(timezoneFullName, true, 0)
+      date: getDateObject(timezoneFullName, true, 0),
     });
 
     addTimezoneToSavedTimezones(timezoneFullName);
 
     this.setState({
-      timezones: newTimezoneList
+      timezones: newTimezoneList,
     });
   }
 
@@ -130,7 +168,7 @@ class ColorZone extends React.Component<Props, State> {
     removeTimezoneFromSavedTimezones(timezoneName);
 
     this.setState({
-      timezones: newTimezoneList
+      timezones: newTimezoneList,
     });
   }
 
@@ -140,9 +178,14 @@ class ColorZone extends React.Component<Props, State> {
         <TimezonesHolder
           timezones={this.state.timezones}
           handleDeleteTimezone={this.removeActiveTimezoneName.bind(this)}
-          addTimeOffset={this.addTimeOffset.bind(this)} />
-        <NewTimezoneForm onClickAddCallback={this.addActiveTimezoneName.bind(this)} />
-        {!this.state.isLiveTime && (<ResetTime onClickCallback={this.setIsLiveTimeToTrue.bind(this)}/>)}
+          addTimeOffset={this.addTimeOffset.bind(this)}
+        />
+        <NewTimezoneForm
+          onClickAddCallback={this.addActiveTimezoneName.bind(this)}
+        />
+        {!this.state.isLiveTime && (
+          <ResetTime onClickCallback={this.setIsLiveTimeToTrue.bind(this)} />
+        )}
       </div>
     );
   }
