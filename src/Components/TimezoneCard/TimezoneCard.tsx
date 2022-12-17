@@ -2,8 +2,10 @@ import React from 'react';
 import TimezoneTime from '../TimezoneTime/TimezoneTime';
 import TimezoneDate from '../TimezoneDate/TimezoneDate';
 import TimezoneName from '../TimezoneName/TimezoneName';
+import Abbreviation from '../Abbreviation/Abbreviation';
 import RemoveTimezoneButton from '../RemoveTimezoneButton/RemoveTimezoneButton';
 import './TimezoneCard.css'
+import { getTimezoneAbbreviation } from '../../Utils/DateUtils';
 
 type Props = {
   timezoneName: string;
@@ -57,6 +59,7 @@ class TimezoneCard extends React.Component<Props, State> {
           addTimeOffset={this.props.addTimeOffset} />
         <TimezoneDate dateString={this.props.dateString}/>
         <TimezoneName timezoneName={this.props.timezoneName} />
+        <Abbreviation abbreviation={getTimezoneAbbreviation(this.props.timezoneName)} />
         <RemoveTimezoneButton 
           timezoneName={this.props.timezoneName} 
           onClickCallback={this.props.handleDeleteTimezone}
