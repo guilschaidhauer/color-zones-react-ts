@@ -49,8 +49,6 @@ class ColorZone extends React.Component<Props, State> {
       );
     }
 
-    //refreshTimeForAllCards();
-
     this.setState({
       timezones: newTimezoneList,
       isLiveTime: false,
