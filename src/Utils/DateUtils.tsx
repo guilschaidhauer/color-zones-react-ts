@@ -64,11 +64,8 @@ export function getTimeUntilNextHour(): number {
 }
 
 export function getTimezoneAbbreviation(timezoneName: string): string {
-  const date = new Date();
-  const offset = -date.getTimezoneOffset() / 60;
-  const sign = offset >= 0 ? '+' : '-';
-  const hours = Math.abs(offset).toString().padStart(2, '0');
-  return `UTC${sign}${hours}`;
+  const zone = new Date().toLocaleTimeString('pt-BR',{timeZone: timezoneName, timeZoneName:'short'}).split(' ')[1]
+  return zone;
 }
 
 function formatMinutesString(minutesString: string) {
