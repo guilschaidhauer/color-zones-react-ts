@@ -25,7 +25,7 @@ type State = {
 
 class ColorZone extends React.Component<Props, State> {
   private minuteTimerID: any;
-  private TimeID: any;
+  private hourTimerId: any;
 
   constructor(props: Props) {
     super(props);
