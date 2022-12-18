@@ -6,5 +6,10 @@
   border-radius: 20px;
   text-align: center;
   font-size: 20px;
-  transition: visibility 0.5s, opacity 0.5s;
+  cursor: pointer;
+  transition: visibility 0.5s, opacity 0.5s, transform 0.5s;
+}
+
+.RemoveTimezoneButton:hover {
+  transform: scale(1.4);
 }
