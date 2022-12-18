@@ -11,9 +11,9 @@
   border-radius: 50px;
   text-align: center;
   font-size: 50px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .NewTimezoneButton:hover {
-  transform: scale(1.2); 
+  transform: scale(1.2);
 }
