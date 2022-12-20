@@ -31,7 +31,7 @@ class ColorZone extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      timezones: getSavedTimezones(),
+      timezones: this.getSortedTimezones(getSavedTimezones()),
       isLiveTime: true,
       timeOffsetInSeconds: 0,
       wheelIsFree: true,
@@ -69,7 +69,7 @@ class ColorZone extends React.Component<Props, State> {
   setIsLiveTimeToTrue(): void {
     this.setState({
       isLiveTime: true,
-      timezones: getSavedTimezones(),
+      timezones: this.getSortedTimezones(getSavedTimezones()),
       timeOffsetInSeconds: 0,
     });
   }
@@ -139,7 +139,7 @@ class ColorZone extends React.Component<Props, State> {
     addTimezoneToSavedTimezones(timezoneFullName);
 
     this.setState({
-      timezones: newTimezoneList,
+      timezones: this.getSortedTimezones(newTimezoneList)
     });
   }
 
@@ -155,7 +155,13 @@ class ColorZone extends React.Component<Props, State> {
     removeTimezoneFromSavedTimezones(timezoneName);
 
     this.setState({
-      timezones: newTimezoneList,
+      timezones: this.getSortedTimezones(newTimezoneList),
+    });
+  }
+
+  getSortedTimezones(timezones: Timezone[]): Timezone[] {
+    return timezones.sort((a, b) => {
+      return a.date.getTime() - b.date.getTime();
     });
   }
 
