@@ -3,12 +3,8 @@ import TimezonesHolder from "../TimezonesHolder/TimezonesHolder";
 import NewTimezoneForm from "../NewTimezoneForm/NewTimezoneForm";
 import ResetTime from "../ResetTime/ResetTime";
 import { getTimezoneByValue } from "../../Constants/TimezoneList";
-import { getSavedTimezones } from "../../Utils/SettingsUtils";
-import { getDateObject } from "../../Utils/DateUtils";
-import { addTimezoneToSavedTimezones } from "../../Utils/SettingsUtils";
-import { removeTimezoneFromSavedTimezones } from "../../Utils/SettingsUtils";
-import { getTimeUntilNextMinute } from "../../Utils/DateUtils";
-import { getTimeUntilNextHour } from "../../Utils/DateUtils";
+import { getSavedTimezones, addTimezoneToSavedTimezones, removeTimezoneFromSavedTimezones } from "../../Utils/SettingsUtils";
+import { getDateObject, getTimeUntilNextMinute, getTimeUntilNextHour } from "../../Utils/DateUtils";
 
 type Timezone = {
   name: string;
