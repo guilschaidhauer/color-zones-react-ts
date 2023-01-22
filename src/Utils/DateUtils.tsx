@@ -41,6 +41,17 @@ export function getFormattedTimezoneName(timezoneName: string): string {
   return returnString;
 }
 
+export function getTimeUntilNextSecond(): number {
+  // Get the current date and time
+  let now: Date = new Date();
+
+  // Calculate the start of the next hour
+  let nextSecond: Date = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds() + 1, 0);
+
+  // Calculate the time until the start of the next second
+  return nextSecond.getTime() - now.getTime();
+}
+
 export function getTimeUntilNextMinute(): number {
   // Get the current date and time
   let now: Date = new Date();
