@@ -13,7 +13,7 @@ export const TimezoneList = new Map([
   ['Asia/Kolkata', 'Bangalore'],
 
   ['Europe/Paris', 'Paris'],
-  ['Europe/Berlin', 'Walldorf'],
+  ['Europe/Berlin', 'Mülheim'],
   ['Europe/Budapest', 'Budapest'],
   ['Europe/Madrid', 'Madrid'],
   ['Europe/Zurich', 'Zurich'],
