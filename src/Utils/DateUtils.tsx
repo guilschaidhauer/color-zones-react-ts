@@ -23,7 +23,8 @@ export function getHour(date: Date): string {
 }
 
 export function getMinute(date: Date, timezoneName: string): string {
-  return formatMinutesString(date.toLocaleString("pt-BR", { timeZone: timezoneName, minute: '2-digit' }));
+  const originalMinutes = date.getMinutes().toString();
+  return formatMinutesString(originalMinutes);
 }
 
 export function getDate(date: Date): string {
